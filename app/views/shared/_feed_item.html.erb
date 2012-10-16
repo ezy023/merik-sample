@@ -1,0 +1,29 @@
+<li id="<%= feed_item.id %>" class="<%= feed_item.genre %>">
+	<a href="<%= feed_item.song_url.to_s %>" class="song-link btn btn-play"><i class="icon-play"></i></a>
+	<div class="artist">Song: <%= feed_item.title %></div>
+	<div class="artist">Artist: <%= feed_item.artist %></div>
+	<%= link_to image_tag(feed_item.user.image_url(:mini).to_s), feed_item.user %>
+	
+	
+
+	<div class="timestamp">
+		<%= feed_item.user.name %> posted <%= time_ago_in_words(feed_item.created_at) %> ago.
+	</div>
+
+
+	<% if current_user?(feed_item.user) %>
+    	<%= render partial: 'shared/delete_links', :locals => { object: feed_item } %>
+  	<% end %>
+  	<% if !current_user?(feed_item.user) %>
+
+  			<%= link_to (retweet_micropost_path(feed_item)) do %>
+  			<div class="btn">
+  				<i class="icon-retweet"></i>
+  			</div>
+  			<% end %>
+  	<% end %>
+  	<% if feed_item.available? %>
+  		<a href="#" class="btn delete-mini"><i class="icon-download"></i></a>
+  	<% end %>
+
+</li>

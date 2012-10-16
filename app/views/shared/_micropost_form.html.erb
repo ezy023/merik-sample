@@ -1,0 +1,39 @@
+<%= form_for @micropost, :html => {:multipart => true, class: ""} do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <div>
+  	<%= f.label :content, class: "control-label" %>
+  	<div>
+    <%= f.text_area :content, placeholder: "Compose new micropost..." %>
+    </div>
+  </div>
+  <div>
+  	<%= f.label :song, class: "control-label" %>
+  	<div> 
+  	<%= f.file_field :song %>
+  	</div>
+  </div>
+  <div>
+  	<%= f.label :title, class: "control-label" %>
+  	<div>
+    <%= f.text_field :title, placeholder: "Song Title" %>
+    </div>
+  </div>
+    <div>
+  	<%= f.label :artist, class: "control-label" %>
+  	<div>
+    <%= f.text_field :artist, placeholder: "Artist" %>
+    </div>
+  </div>
+    <div>
+  	<%= f.label :genre, class: "control-label" %>
+  	<div>
+    <%= f.text_field :genre, placeholder: "Genre" %>
+    </div>
+  </div>
+  <div>
+  	<label class="checkbox">
+  	<%= f.check_box :available, class: "checkbox" %> Downloadable
+  	</label>
+  </div>
+  <%= f.submit "Post", class: "btn btn-large btn-primary" %>
+<% end %>
