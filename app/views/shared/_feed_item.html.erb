@@ -2,7 +2,7 @@
 	<a href="<%= feed_item.song_url.to_s %>" class="song-link btn btn-play"><i class="icon-play"></i></a>
 	<div class="artist">Song: <%= feed_item.title %></div>
 	<div class="artist">Artist: <%= feed_item.artist %></div>
-	<%= link_to image_tag(feed_item.user.image_url(:mini).to_s), feed_item.user %>
+	<%= link_to image_tag(feed_item.user.image.url(:mini)), feed_item.user %>
 	
 	
 

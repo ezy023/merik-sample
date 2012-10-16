@@ -13,7 +13,7 @@
 	<a href="<%= micropost.song_url.to_s %>" class="song-link btn btn-play"><i class="icon-play"></i></a>
 	<div class="artist">Song: <%= micropost.title %></div>
 	<div class="artist">Artist: <%= micropost.artist %></div>
-	<%= link_to image_tag(micropost.user.image_url(:mini).to_s), micropost.user %>
+	<%= link_to image_tag(micropost.user.image.url(:mini)), micropost.user %>
 	
 	
 
