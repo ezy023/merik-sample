@@ -16,3 +16,4 @@
 
 # Ignore vendor folder
 /vendor
+/config/application.yml
