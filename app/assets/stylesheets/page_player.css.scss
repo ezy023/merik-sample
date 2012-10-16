@@ -110,6 +110,16 @@ ul.playlist li a.delete-mini {
   color: red; 
 }
 
+/* for download button */
+ul.playlist li a.dl-mini {
+  padding: 2px 6px;
+  margin-top: -4.90em;
+  font-size: 11px;
+  line-height: 17px;
+  float: right;
+  color: red; 
+}
+
 /* reposition the thumbnail of the users profile picture */
 ul.playlist li img {
 	margin-top: -6em;
