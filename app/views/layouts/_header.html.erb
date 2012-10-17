@@ -1,22 +1,28 @@
 <header class="navbar navbar-fixed-top">
   <div class="navbar-inner">
     <div class="container">
-      <%= link_to "muzerik", root_path, id: "logo" %>
-      <nav>
-        <ul class="nav pull-right">
+        <ul class="nav">
+        <li class="seperator">
+      <%= link_to "muzerik", root_path, id: "logo", class: "pull-left brand" %>
+
+        </li>
+        <li class="divider-vertical"></li>
         <li>
-        <%= form_tag microposts_path, method: 'get', class: "form-search" do %>
+        <%= form_tag microposts_path, method: 'get', class: "navbar-search" do %>
           		
-          			<%= text_field_tag :search, params[:search], class: "input-medium search-query" %>
-          			<%= submit_tag "Search", name: nil, class: "btn btn-mini" %>
+          			<%= text_field_tag :search, params[:search], placeholder: "Title, Artist, or Genre", class: "input-medium search-query" %>
+          			
           		
           		<% end %>
         </li>
-        <li><%= link_to "Home", root_path %></li>
-         <li><%= link_to "Help", help_path %></li>
+        <li class="divider-vertical"></li>
+        <li><%= link_to "Home", root_path, class: "pull-right" %></li>
+         <li><%= link_to "Help", help_path, class: "pull-right" %></li>
+
           		
           <% if signed_in? %>
-            <li><%= link_to "Users", users_path %></li>
+            <li><%= link_to "Users", users_path, class: "pull-right" %></li>
+            <li class="divider-vertical pull-right"></li>
             <li id="fat-menu" class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                 Account <b class="caret"></b>
@@ -35,7 +41,6 @@
             <li><%= link_to "Sign in", signin_path %></li>
           <% end %>
         </ul>
-      </nav>
     </div>
   </div>
 </header>

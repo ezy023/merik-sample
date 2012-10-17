@@ -67,9 +67,7 @@ p {
 /* header */
 
 #logo {
-  float: left;
-  margin-right: 10px;
-  margin-top: 7px;
+
   font-size: 1.7em;
   color: white;
   text-transform: uppercase;
@@ -255,13 +253,20 @@ aside {
 /* Seach form width increase and border when focused */
 
 input.search-query {
-	border-radius: 15px !important
+	border-radius: 15px !important;
+  width: 18em;
 }
 
 .edit-user-image {
   float: left;
   margin-bottom: 500px;
 }
+
+.seperator {
+  margin-right: 20em;
+}
+
+
 
 
 
