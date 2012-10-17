@@ -19,9 +19,73 @@
 <% else %>	
 	<div class="center hero-unit">
 	  <h1>Welcome to the Muzerik</h1>
+	  <h2>THE Music Social Network</h2>
 	<div>
-	  <%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
+		<a href="#signUp" role="button" class="btn btn-large btn-primary" data-toggle="modal">Sign Up!</a>
+	</div>
+	<p> Or </p>
+	<div>
+		<a href="#signInModal" role="button" class="btn btn-large btn-primary" data-toggle="modal">Sign In</a>
 	</div>
 	</div>
-	
+
+
+ 
+
+<div class="modal hide fade in" id="signInModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none; ">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">Sign In</h3>
+	  </div>
+		  <div class="modal-body">
+		    			<%= form_for(:session, url: sessions_path) do |f| %>
+					
+							<%= f.label :email %>
+							<%= f.text_field :email %>
+				
+							<%= f.label :password %>
+							<%= f.password_field :password %>
+							
+							<p><%= link_to "Forgot Password?", new_password_reset_path %></p>
+				
+							<%= f.submit "Sign in", class: "btn btn-large btn-primary" %>
+					<% end %>
+			
+					<p>New user? <%= link_to "Sign up now!", signup_path %></p>
+		  </div>
+		  <div class="modal-footer">
+		    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+
+		  </div>
+	</div>	
+
+
+<div class="modal hide fade in" id="signUp" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none; ">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">Sign Up</h3>
+	  </div>
+		  <div class="modal-body">
+		    			<%= form_for(:user, url: users_path) do |f| %>
+								
+				
+								<%= f.label :name %>
+								<%= f.text_field :name %>
+					
+								<%= f.label :email %>
+								<%= f.text_field :email %>
+								
+								<%= f.label :password %>
+								<%= f.password_field :password %>
+								
+								<%= f.label :password_confirmation, "Confirmation" %>
+								<%= f.password_field :password_confirmation %>
+								
+								<%= f.submit "Create my account", class: "btn btn-large btn-primary" %>
+						<% end %>
+		  </div>
+		  <div class="modal-footer">
+		    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+		  </div>
+	</div>	
 <% end %>
