@@ -24,7 +24,9 @@ class Micropost < ActiveRecord::Base
 
   def self.search(search)
     if search
-      find(:all, :conditions => ['title LIKE ? OR artist LIKE ? OR genre LIKE ?', "%#{search}%", "%#{search}%", "%#{search}%"])
+      # find(:all, :conditions => ['title LIKE ? OR artist LIKE ? OR genre LIKE ?', "%#{search}%", "%#{search}%", "%#{search}%"])
+    # For use with Heroku POSTGRESQL
+      find(:all, :conditions => ['title ILIKE ? OR artist ILIKE ? OR genre ILIKE ?', "%#{search}%", "%#{search}%", "%#{search}%"])
     else
       find(:all)
     end
