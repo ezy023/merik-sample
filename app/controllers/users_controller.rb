@@ -13,8 +13,8 @@ class UsersController < ApplicationController
   end
   
   def index
-  	#@users = User.search(params[:search])
-  	@users = User.paginate(page: params[:page])#.search(params[:search])
+  	# @users = User.search(params[:search])
+  	@users = User.paginate(page: params[:page]).search(params[:search])
   	#@search_users = User.search(params[:search])
   end
   

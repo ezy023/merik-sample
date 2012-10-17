@@ -51,13 +51,16 @@ class User < ActiveRecord::Base
   	self.relationships.find_by_followed_id(other_user.id).destroy
   end
   
-  # def self.search(search)
-  # 	if search
-  # 		find(:all, :joins => :microposts, :conditions => ['name LIKE ? OR title LIKE ? OR artist LIKE ?', "%#{search}%", "%#{search}%", "%#{search}%"])
-  # 	else
-  # 		find(:all)
-  # 	end
-  # end
+  def self.search(search)
+  	if search
+  		# For SQLite
+      # find(:all, :conditions => ['name LIKE ?', "%#{search}%"])
+      # For Heroku POSTGRESQL
+      find(:all, :conditions => ['name ILIKE ?', "%#{search}%"])
+  	else
+  		find(:all)
+  	end
+  end
   
   def generate_token(column)
   	begin
