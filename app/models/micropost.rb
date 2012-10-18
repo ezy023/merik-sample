@@ -12,8 +12,8 @@ class Micropost < ActiveRecord::Base
   validates :user_id, presence: true
   validates :song, presence: true
   validates :title, presence: true
-  # validates :artist, presence: true
-  # validates :genre, presence: true
+  validates :artist, presence: true
+  validates :genre, presence: true
   
   default_scope order: 'microposts.created_at DESC'
   
