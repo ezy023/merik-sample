@@ -1,5 +1,13 @@
 SampleApp::Application.routes.draw do
 
+  get "retweetings/create"
+
+  get "retweetings/destroy"
+
+  get "retweeting/create"
+
+  get "retweeting/destroy"
+
   # resources :reposts
 
   resources :users do
@@ -11,6 +19,7 @@ SampleApp::Application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   resources :microposts, only: [:create, :destroy, :index]
   resources :relationships, only: [:create, :destroy]
+  resources :retweetings, only: [:create, :destroy]
   resources :password_resets
   resources :messages # for sending emails
   

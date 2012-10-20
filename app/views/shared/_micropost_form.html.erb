@@ -24,10 +24,5 @@
     <%= f.select(:genre, [['Electronic', 'Electronic'], ['Rock', 'Rock'], ['Country', 'Country'], ['Rap', 'Rap'], ['Classical', 'Classical']]) %>
     </div>
   </div>
-  <div>
-  	<label class="checkbox">
-  	<%= f.check_box :available, class: "checkbox" %> Downloadable
-  	</label>
-  </div>
   <%= f.submit "Post", class: "btn btn-large btn-primary" %>
 <% end %>

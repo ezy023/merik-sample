@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121016150243) do
+ActiveRecord::Schema.define(:version => 20121020020018) do
 
   create_table "messages", :force => true do |t|
     t.datetime "created_at", :null => false
@@ -53,6 +53,17 @@ ActiveRecord::Schema.define(:version => 20121016150243) do
 
   add_index "reposts", ["created_at"], :name => "index_reposts_on_created_at"
   add_index "reposts", ["micropost_id"], :name => "index_reposts_on_micropost_id"
+
+  create_table "retweetings", :force => true do |t|
+    t.integer  "retweeter_id"
+    t.integer  "retweet_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  add_index "retweetings", ["retweet_id"], :name => "index_retweetings_on_retweet_id"
+  add_index "retweetings", ["retweeter_id", "retweet_id"], :name => "index_retweetings_on_retweeter_id_and_retweet_id", :unique => true
+  add_index "retweetings", ["retweeter_id"], :name => "index_retweetings_on_retweeter_id"
 
   create_table "users", :force => true do |t|
     t.string   "name"

@@ -17,9 +17,12 @@ class User < ActiveRecord::Base
   has_many :followed_users, through: :relationships, source: :followed
   has_many :reverse_relationships, foreign_key: "followed_id", class_name: "Relationship", dependent: :destroy
   has_many :followers, through: :reverse_relationships, source: :follower
-  has_many :retweet, :class_name => "micropost"
+  # has_many :retweet, :class_name => "micropost"
   # has_many :reposts
   # has_many :microposts, :through => :reposts
+  #for retweets
+  has_many :retweetings, foreign_key: "retweeter_id"
+  has_many :retweets, through: :retweetings, :class_name => 'Micropost'
 
 
   mount_uploader :image, ImageUploader
@@ -36,7 +39,7 @@ class User < ActiveRecord::Base
   validates :password_confirmation, presence: true, on: :create
   
   def feed
-  	Micropost.from_users_followed_by(self)
+  	Micropost.from_users_followed_by(self) + Retweeting.from_users_followed_by(self) + Retweeting.from_users_retweets(self)
   end
   
   def following?(other_user)
@@ -50,6 +53,14 @@ class User < ActiveRecord::Base
   def unfollow!(other_user)
   	self.relationships.find_by_followed_id(other_user.id).destroy
   end
+
+  def retweeting?(other_post)
+    retweetings.find_by_retweet_id(other_post.id)
+  end
+  
+  def retweet!(other_post)
+    retweetings.create!(retweet_id: other_post.id)
+  end  
   
   def self.search(search)
   	if search

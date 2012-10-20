@@ -144,10 +144,11 @@ ul.playlist li:hover a {
  color:#333;
 }
 
-/* keep delete link red on hover */
+/* keep delete link red on hover MOVED BELOW, CHECK FOR REMOVAL
 ul.playlist li:hover a.delete-mini {
  color: red;
 }
+*/
 
 ul.playlist li.sm2_playing,
 ul.playlist li.sm2_playing:hover {
@@ -173,10 +174,21 @@ ul.playlist li.sm2_paused a {
 
 /* always keep delete link red for all activities */
 ul.playlist li.sm2_playing a.delete-mini,
+ul.playlist li:hover a.delete-mini, 
 ul.playlist li.sm2_playing:hover a.delete-mini,
 ul.playlist li.sm2_paused a.delete-mini {
 	color: red;
 }
+
+/* Retweet icon styling */
+ul.playlist li.sm2_playing .retweet-icon,
+ul.playlist li:hover .retweet-icon, 
+ul.playlist li.sm2_playing:hover .retweet-icon,
+ul.playlist li.sm2_paused .retweet-icon,
+ul.playlist li .retweet-icon {
+  margin-top: -7em;
+}
+
 
 ul.playlist li.sm2_playing .timestamp,
 ul.playlist li.sm2_playing:hover .timestamp,
