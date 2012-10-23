@@ -1,14 +1,5 @@
 SampleApp::Application.routes.draw do
 
-  get "retweetings/create"
-
-  get "retweetings/destroy"
-
-  get "retweeting/create"
-
-  get "retweeting/destroy"
-
-  # resources :reposts
 
   resources :users do
   	member do
@@ -31,7 +22,7 @@ SampleApp::Application.routes.draw do
 
   match '/help', to: 'static_pages#help'
   match '/about', to: 'static_pages#about'
-  match '/contact', to: 'static_pages#contact'
+  match '/contact', to: 'messages#new'
   
   resources :microposts do
     member do

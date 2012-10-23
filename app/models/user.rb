@@ -85,6 +85,12 @@ class User < ActiveRecord::Base
   	save!
   	UserMailer.password_reset(self).deliver
   end
+
+  # def send_contact_us(message)
+  #     @message = message
+  #     UserMailer.contact_us(@message, self).deliver
+  #     redirect_to root_url, notice: "Message sent! Thanks for your feedback!"
+  # end
   
   private
   

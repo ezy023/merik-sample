@@ -11,4 +11,10 @@ class UserMailer < ActionMailer::Base
   	mail :to => user.email, :subject => "Password Reset"
     
   end
+
+  def contact_us(message)
+    @message = message
+    # @user = user
+    mail :to => ENV["GMAIL_USER"], :subject => "Muserik Feedback"
+  end
 end
