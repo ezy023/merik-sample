@@ -5,8 +5,14 @@
 			<h1>
 				<%= image_tag @user.image.url(:thumb) %>
 				<%= @user.name %>
+
 			</h1>
 		</section>
+		<% if @user.summary? %>
+			<section class="profile-summary">
+				<%= @user.summary %>
+			</section>
+		<% end %>
 		<section>
 			<%= render 'shared/stats' %>
 		</section>
@@ -20,7 +26,12 @@
 			</ul>
 			<%= will_paginate @microposts %>
 		<% else %>
-			<h4>Your song posts show up here</h4>
+			<div class="empty-feed">
+				<h4>There is nothing here yet.</h4>
+				<p>Search for music above, or click on 'Users' to connect with awesome people!</p>
+				<p>Or</p>
+				<p>Go to your home page and post your own song!</p>
+			</div>
 		<% end %>
 	</div>
 </div>

@@ -4,6 +4,15 @@
 <h1>
   <%= current_user.name %>
 </h1>
+		<% if current_user.summary? %>
+			<section class="profile-summary">
+				<%= current_user.summary %>
+			</section>
+		<% else %>
+			<section class="profile-summary">
+				<p>(Update your summary in 'Settings')</p>
+			</section>
+		<% end %>
 <span>
   <%= link_to "My Profile", current_user %>
 </span>

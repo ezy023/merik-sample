@@ -91,7 +91,7 @@ footer {
   a {
     color: $gray;
     &:hover { 
-      color: $grayDarker;
+      color: green;
     }
   }  
   small { 
@@ -268,6 +268,48 @@ input.search-query {
 
 .dj-image {
   background-image: url('muserik_home_background.jpg');
+  background-size: 100% Auto;
+}
+
+.profile-summary {
+    border-bottom: 1px solid $grayLighter;
+    text-align: center;
+    font-style: italic;
+    font-weight: bold;
+    color: #C0C0C0;
+    font-family: "Monospace", Monaco, monospace;
+    font-size: 80%;
+    margin-bottom: 1em;
+
+}
+
+.index-profile-summary {
+    text-align: center;
+    font-style: italic;
+    font-weight: bold;
+    color: #C0C0C0;
+    font-family: "Monospace", Monaco, monospace;
+    font-size: 70%;
+    margin-left: 1em;
+}
+
+.empty-feed {
+  padding-top: 3em;
+  padding-bottom: 22em;
+  text-align: center;
+  border-top: .5em dashed $gray;
+  border-right: .5em dashed $gray;
+  border-left: .5em dashed $gray;
+  border-top-right-radius: 3em;
+  border-top-left-radius: 3em;
+  h4 {
+    font-size: 200%;
+    padding-bottom: 1em;
+  }
+  p {
+    font-weight: bold;
+    color: $grayLight;
+  }
 }
 
 
