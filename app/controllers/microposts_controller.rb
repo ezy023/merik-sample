@@ -22,22 +22,22 @@ class MicropostsController < ApplicationController
 		redirect_to root_url
 	end
 
-	def retweet
-    @original_micropost = Micropost.find_by_id(params[:id])
-    if @original_micropost
-      @new_micropost = current_user.microposts.build(user_id: @original_micropost.user_id, title: @original_micropost.title, song:@original_micropost.song, artist:@original_micropost.artist, genre:@original_micropost.genre, available:@original_micropost.available)
-        if @new_micropost.save
-          redirect_to user_path(current_user)
-          flash[:success] = "Retweet Successful"
-        else
-          redirect_to user_path(current_user), notice:
-          @new_micropost.errors.full_messages
-        end
-    else
-      redirect_back_or current_user
-      flash[:error] = "Retweet error!"
-    end
-  end
+	# def retweet
+ #    @original_micropost = Micropost.find_by_id(params[:id])
+ #    if @original_micropost
+ #      @new_micropost = current_user.microposts.build(user_id: @original_micropost.user_id, title: @original_micropost.title, song:@original_micropost.song, artist:@original_micropost.artist, genre:@original_micropost.genre, available:@original_micropost.available)
+ #        if @new_micropost.save
+ #          redirect_to user_path(current_user)
+ #          flash[:success] = "Retweet Successful"
+ #        else
+ #          redirect_to user_path(current_user), notice:
+ #          @new_micropost.errors.full_messages
+ #        end
+ #    else
+ #      redirect_back_or current_user
+ #      flash[:error] = "Retweet error!"
+ #    end
+ #  end
 	
 
 	

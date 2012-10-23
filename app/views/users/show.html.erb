@@ -19,6 +19,8 @@
 				<%= render @microposts %>
 			</ul>
 			<%= will_paginate @microposts %>
+		<% else %>
+			<h4>Your song posts show up here</h4>
 		<% end %>
 	</div>
 </div>
