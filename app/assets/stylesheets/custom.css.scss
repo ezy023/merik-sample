@@ -74,6 +74,7 @@ p {
   letter-spacing: -1px;
   padding-top: 9px;
   font-weight: bold;
+  font-family: Verdana, Geneva, sans-serif;
   line-height: 1;
   &:hover {
     color: white;
@@ -268,7 +269,7 @@ input.search-query {
 
 .dj-image {
   background-image: url('muserik_home_background.jpg');
-  background-size: 100% Auto;
+  /*background-size: 100% Auto; */
 }
 
 .profile-summary {
@@ -310,6 +311,20 @@ input.search-query {
     font-weight: bold;
     color: $grayLight;
   }
+}
+
+#logo-title {
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 8em;
+}
+
+#logo-supp {
+  font-family: Verdana, Geneva, sans-serif;
+}
+
+#or-tag {
+  padding-left: 1.5em;
+  padding-right: 1.5em;
 }
 
 

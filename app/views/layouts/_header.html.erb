@@ -7,6 +7,7 @@
 
         </li>
         <li class="divider-vertical"></li>
+        <% if signed_in? %>
         <li id="search-popover">
         <%= form_tag microposts_path, method: 'get', class: "navbar-search" do %>
           		
@@ -15,6 +16,7 @@
           		
           		<% end %>
         </li>
+        <% end %>
         <li class="divider-vertical"></li>
         <li><%= link_to "Home", root_path, class: "pull-right" %></li>
          <li><%= link_to "Help", help_path, class: "pull-right" %></li>
