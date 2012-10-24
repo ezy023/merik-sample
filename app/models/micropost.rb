@@ -32,6 +32,15 @@ class Micropost < ActiveRecord::Base
   where("user_id IN (#{followed}) OR user_id = :user_id OR id IN (#{retweeters}) OR id IN (#{retweets})", user_id: user)
   end
 
+  def self.show_user_posts(user)
+    followed = "SELECT followed_id FROM relationships WHERE follower_id = :user_id"
+    retweets = "SELECT retweet_id FROM retweetings WHERE retweeter_id = :user_id"
+    followed_user_ids = "SELECT followed_id FROM relationships WHERE follower_id = :user_id
+                          UNION ALL
+                         SELECT retweet_id FROM retweetings WHERE retweeter_id = :user_id"
+  where("user_id = :user_id OR id IN (#{retweets})", user_id: user)
+  end
+
   def self.search(search)
     if search
      # For use with SQLite on local

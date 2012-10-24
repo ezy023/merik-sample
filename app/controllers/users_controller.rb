@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   
   def show
   	@user = User.find(params[:id])
-    @all = @user.microposts + @user.retweets
+    @all = Micropost.show_user_posts(@user)
     @microposts = @all.paginate(page: params[:page], page: params[:page])
   end
   
