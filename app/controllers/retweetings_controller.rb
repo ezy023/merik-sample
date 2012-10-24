@@ -3,8 +3,8 @@ class RetweetingsController < ApplicationController
   
   def create
   	@post = Micropost.find(params[:retweeting][:retweet_id])
-	current_user.retweet!(@post)
-	redirect_to root_url
+	  current_user.retweet!(@post)
+	  redirect_to root_url
 		
   end
 

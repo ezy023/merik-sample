@@ -21,8 +21,15 @@ class Micropost < ActiveRecord::Base
   default_scope order: 'microposts.updated_at DESC'
   
   def self.from_users_followed_by(user)
-  	followed_user_ids = "SELECT followed_id FROM relationships WHERE follower_id = :user_id"
-	where("user_id IN (#{followed_user_ids}) OR user_id = :user_id", user_id: user)
+    followed = "SELECT followed_id FROM relationships WHERE follower_id = :user_id"
+    retweeters = "SELECT retweet_id FROM retweetings WHERE retweeter_id IN (#{followed})"
+    retweets = "SELECT retweet_id FROM retweetings WHERE retweeter_id = :user_id"
+    followed_user_ids = "SELECT followed_id FROM relationships WHERE follower_id = :user_id
+                          UNION ALL
+                         SELECT retweet_id FROM retweetings WHERE retweeter_id IN (#{followed})
+                          UNION ALL
+                         SELECT retweet_id FROM retweetings WHERE retweeter_id = :user_id"
+  where("user_id IN (#{followed}) OR user_id = :user_id OR id IN (#{retweeters}) OR id IN (#{retweets})", user_id: user)
   end
 
   def self.search(search)

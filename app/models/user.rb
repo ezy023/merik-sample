@@ -39,7 +39,7 @@ class User < ActiveRecord::Base
   validates :password_confirmation, presence: true, on: :create
   
   def feed
-  	Micropost.from_users_followed_by(self) + Retweeting.from_users_followed_by(self) + Retweeting.from_users_retweets(self)
+  	Micropost.from_users_followed_by(self)
   end
   
   def following?(other_user)
