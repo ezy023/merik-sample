@@ -60,7 +60,11 @@ class User < ActiveRecord::Base
   
   def retweet!(other_post)
     retweetings.create!(retweet_id: other_post.id)
-  end  
+  end 
+
+  def untweet!(other_post)
+    retweetings.find_by_retweet_id(other_post.id).destroy     
+  end 
   
   def self.search(search)
   	if search

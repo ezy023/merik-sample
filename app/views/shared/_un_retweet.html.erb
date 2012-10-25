@@ -1,0 +1,3 @@
+<%= form_for(current_user.retweetings.find_by_retweet_id(object), html: { method: :delete }, remote: true) do |f| %>
+	<%= f.submit "undo", class: "btn btn-mini btn-danger" %>
+<% end %>

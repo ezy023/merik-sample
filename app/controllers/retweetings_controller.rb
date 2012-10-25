@@ -9,6 +9,9 @@ class RetweetingsController < ApplicationController
   end
 
   def destroy
+    @post = Retweeting.find(params[:id]).retweet
+    current_user.untweet!(@post)
+    redirect_to root_url
   end
 
   def user

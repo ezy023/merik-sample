@@ -13,6 +13,7 @@
 		<div class="retweet-icon pull-right">
 			<i class="icon-retweet"></i>
 		</div>
+		<%= render partial: 'shared/un_retweet', :locals => { object: feed_item} %> 
 	<% end %>
 
 	<% if current_user?(feed_item.user) %>

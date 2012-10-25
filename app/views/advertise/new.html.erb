@@ -1,4 +1,4 @@
-<h1>Contact Us</h1>
+<h1>Advertise with Us</h1>
 
 <%= form_for @message do |f| %>
   <% if @message.errors.any? %>
@@ -18,6 +18,10 @@
   <div class="field">
     <%= f.label :email %><br />
     <%= f.text_field :email %>
+  </div>
+    <div class="field">
+    <%= f.label :company %><br />
+    <%= f.text_field :company %>
   </div>
   <div class="field">
     <%= f.label :content, "Message" %><br />

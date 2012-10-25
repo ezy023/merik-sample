@@ -32,6 +32,8 @@
   	<% end %>
   	<% if !current_user?(micropost.user) && !current_user.retweeting?(micropost) %>
   		<%= render partial: 'shared/retweet', :locals => { object: micropost} %>
+  	<% elsif !current_user?(micropost.user) && current_user.retweeting?(micropost) %>
+  		<%= render partial: 'shared/un_retweet', :locals => { object: micropost} %> 		
   	<% end %>
   	<% if micropost.available? %>
   		<a href="#" class="btn dl-mini"><i class="icon-download"></i></a>

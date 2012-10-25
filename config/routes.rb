@@ -1,6 +1,5 @@
 SampleApp::Application.routes.draw do
 
-
   resources :users do
   	member do
   		get :following, :followers
@@ -13,6 +12,7 @@ SampleApp::Application.routes.draw do
   resources :retweetings, only: [:create, :destroy]
   resources :password_resets
   resources :messages # for sending emails
+  resources :advertise # for advertising contacts
   
   match '/signup', to: 'users#new'
   match '/signin', to: 'sessions#new'
