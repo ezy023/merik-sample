@@ -6,10 +6,12 @@
 	</ul>
 		<% will_paginate @feed_items %>
 <% else %>
+<div class="well well-small">
 	<div class="empty-feed">
 		<h4>There is nothing here yet.</h4>
 		<p>Search for music above, or click on 'Users' to connect with awesome people</p>
 		<p>Or</p>
 		<p>Post your own song on the right</p>
 	</div>
+</div>
 <% end %>

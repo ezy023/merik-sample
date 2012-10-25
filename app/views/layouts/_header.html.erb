@@ -1,11 +1,9 @@
-<header class="navbar navbar-fixed-top">
+<header class="navbar">
   <div class="navbar-inner">
     <div class="container">
-        <ul class="nav">
-        <li class="seperator">
       <%= link_to "muserik", root_path, id: "logo", class: "pull-left brand" %>
 
-        </li>
+        <ul class="nav pull-right">
         <li class="divider-vertical"></li>
         <% if signed_in? %>
         <li id="search-popover">
@@ -23,8 +21,7 @@
 
           		
           <% if signed_in? %>
-            <li id="users-popover"><%= link_to "Users", users_path, class: "pull-right" %></li>
-            <li class="divider-vertical pull-right"></li>
+            <li><%= link_to "Users", users_path %></li>
             <li id="fat-menu" class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                 Account <b class="caret"></b>

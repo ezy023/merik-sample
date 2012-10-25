@@ -5,6 +5,7 @@
 			<h1>
 				<%= image_tag @user.image.url(:thumb) %>
 				<%= @user.name %>
+				<%= render 'follow_form' if signed_in? %>
 
 			</h1>
 		</section>
@@ -18,7 +19,7 @@
 		</section>
 	</aside>
 	<div class="span7 offset1">
-		<%= render 'follow_form' if signed_in? %>
+		
 		<% if @user.microposts.any? || @user.retweets.any? %>
 			<h3> Microposts (<%= @user.microposts.count + @user.retweets.count %>)</h3>
 			<ul class="playlist">
@@ -26,12 +27,14 @@
 			</ul>
 			<%= will_paginate @microposts %>
 		<% else %>
+		<div class="well well-small span7">
 			<div class="empty-feed">
 				<h4>There is nothing here yet.</h4>
 				<p>Search for music above, or click on 'Users' to connect with awesome people!</p>
 				<p>Or</p>
 				<p>Go to your home page and post your own song!</p>
 			</div>
+		</div>
 		<% end %>
 	</div>
 </div>
