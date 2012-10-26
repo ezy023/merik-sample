@@ -10,16 +10,13 @@
 #
 
 class User < ActiveRecord::Base
-  attr_accessible :email, :name, :password, :password_confirmation, :image, :remote_image_url, :summary
+  attr_accessible :email, :name, :password, :password_confirmation, :image, :remote_image_url, :summary, :username
   has_secure_password
   has_many :microposts, dependent: :destroy
   has_many :relationships, foreign_key: "follower_id", dependent: :destroy
   has_many :followed_users, through: :relationships, source: :followed
   has_many :reverse_relationships, foreign_key: "followed_id", class_name: "Relationship", dependent: :destroy
   has_many :followers, through: :reverse_relationships, source: :follower
-  # has_many :retweet, :class_name => "micropost"
-  # has_many :reposts
-  # has_many :microposts, :through => :reposts
   #for retweets
   has_many :retweetings, foreign_key: "retweeter_id"
   has_many :retweets, through: :retweetings, :class_name => 'Micropost'
@@ -37,6 +34,7 @@ class User < ActiveRecord::Base
   						uniqueness: { case_sensitvie: false }
   validates :password, presence: true, length: { minimum: 6 }, on: :create
   validates :password_confirmation, presence: true, on: :create
+  validates :username, presence: true, uniqueness: true
   
   def feed
   	Micropost.from_users_followed_by(self)

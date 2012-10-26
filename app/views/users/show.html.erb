@@ -4,7 +4,11 @@
 		<section>
 			<h1>
 				<%= image_tag @user.image.url(:thumb) %>
-				<%= @user.name %>
+				<% if @user.username? %>
+					<%= @user.username %>
+				<% else %>
+					<%= @user.name %>
+				<% end %>
 				<%= render 'follow_form' if signed_in? %>
 
 			</h1>
