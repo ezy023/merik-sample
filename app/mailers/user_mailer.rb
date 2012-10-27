@@ -15,12 +15,12 @@ class UserMailer < ActionMailer::Base
   def contact_us(message)
     @message = message
     # @user = user
-    mail :to => ENV["GMAIL_USER"], :subject => "Muserik Feedback"
+    mail :to => ENV["GMAIL_USER"], :subject => @message.subject
   end
 
   def advertise_with_us(message)
     @message = message
     # @user = user
-    mail :to => ENV["GMAIL_USER"], :subject => "Muserik Advertising"
+    mail :to => ENV["GMAIL_USER"], :subject => @message.subject
   end
 end

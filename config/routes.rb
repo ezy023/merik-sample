@@ -12,7 +12,6 @@ SampleApp::Application.routes.draw do
   resources :retweetings, only: [:create, :destroy]
   resources :password_resets
   resources :messages # for sending emails
-  resources :advertise # for advertising contacts
   
   match '/signup', to: 'users#new'
   match '/signin', to: 'sessions#new'
@@ -23,7 +22,8 @@ SampleApp::Application.routes.draw do
   match '/help', to: 'static_pages#help'
   match '/about', to: 'static_pages#about'
   match '/contact', to: 'messages#new'
-  
+  match '/advertisement', to: 'messages#new'
+
   resources :microposts do
     member do
       get :retweet

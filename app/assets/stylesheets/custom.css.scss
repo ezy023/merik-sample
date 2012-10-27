@@ -27,7 +27,6 @@ section {
 
 textarea {
   resize: vertical;
-  height: 75px !important;
 }
 
 .center {
@@ -330,6 +329,8 @@ input.search-query {
 
 .navbar {
   margin-top: -6.2em !important;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 

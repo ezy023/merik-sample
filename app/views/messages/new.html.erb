@@ -1,4 +1,5 @@
-<h1>Contact Us</h1>
+<div class="container-fluid contact-us">
+<h1>Send Us Your Thoughts!</h1>
 
 <%= form_for @message do |f| %>
   <% if @message.errors.any? %>
@@ -11,17 +12,22 @@
       </ul>
     </div>
   <% end %>
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :content, "Message" %><br />
-    <%= f.text_area :content, :rows => 5 %>
-  </div>
-  <div class="actions"><%= f.submit "Send Message" %></div>
+    <div class="field">
+      <%= f.label :name %><br />
+      <%= f.text_field :name %>
+    </div>
+    <div class="field">
+      <%= f.label :email %><br />
+      <%= f.text_field :email %>
+    </div>
+    <div class="field">
+      <%= f.label :subject %>
+      <%= f.text_field :subject %>
+    </div>
+    <div class="field">
+      <%= f.label :content, "Message" %><br />
+      <%= f.text_area :content, :rows => 5 %>
+    </div>
+    <div class="actions"><%= f.submit "Send Message" %></div>
 <% end %>
+</div>
