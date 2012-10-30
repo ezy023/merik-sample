@@ -1,14 +1,3 @@
-<!-- <li>
-	<a href="<%= micropost.song %>" class="song-link btn btn-play"><i class="icon-play"></i></a>
-	
-	<%= link_to image_tag(micropost.user.image_url(:mini).to_s), micropost.user %>
-	<p><%= micropost.user.name %></p>
-
-	<span class="timestamp"> Posted <%= time_ago_in_words(micropost.created_at) %> ago. </span>
-	<% if current_user?(micropost.user) %>
-		<%= render partial: 'shared/delete_links', :locals => { object: micropost } %>
-	<% end %>
-</li> -->
 <li id="<%= micropost.id %>" class="<%= micropost.genre %>">
 	<a href="<%= micropost.song_url.to_s %>" class="song-link btn btn-play"><i class="icon-play"></i></a>
 	<div class="artist">Song: <%= micropost.title %></div>
@@ -21,20 +10,16 @@
 		<%= micropost.user.name %> posted <%= time_ago_in_words(micropost.created_at) %> ago.
 	</div>
 
-	<% if current_user.retweeting?(micropost) %>
-		<div class="retweet-icon pull-right">
-			<i class="icon-retweet"></i>
-		</div>
-	<% end %>
+	<div id="icon-<%= micropost.id %>">
+		<%= render partial: 'shared/icon_retweet', :locals => { object: micropost } %>
+	</div>
+	
 
 	<% if current_user?(micropost.user) %>
     	<%= render partial: 'shared/delete_links', :locals => { object: micropost } %>
   	<% end %>
-  	<% if !current_user?(micropost.user) && !current_user.retweeting?(micropost) %>
-  		<%= render partial: 'shared/retweet', :locals => { object: micropost} %>
-  	<% elsif !current_user?(micropost.user) && current_user.retweeting?(micropost) %>
-  		<%= render partial: 'shared/un_retweet', :locals => { object: micropost} %> 		
-  	<% end %>
+  	<%= render partial: 'shared/retweetings_post_item',  :locals => { object: micropost }  %> 		
+
   	<% if micropost.available? %>
   		<a href="#" class="btn dl-mini"><i class="icon-download"></i></a>
   	<% end %>

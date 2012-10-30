@@ -11,11 +11,25 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121027204236) do
+ActiveRecord::Schema.define(:version => 20121028205624) do
+
+  create_table "advertisements", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "advertises", :force => true do |t|
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "invitations", :force => true do |t|
+    t.integer  "sender_id"
+    t.string   "recipient_email"
+    t.string   "token"
+    t.datetime "sent_at"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
   create_table "messages", :force => true do |t|
@@ -83,6 +97,8 @@ ActiveRecord::Schema.define(:version => 20121027204236) do
     t.string   "image"
     t.string   "summary"
     t.string   "username"
+    t.integer  "invitation_id"
+    t.integer  "invitation_limit"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

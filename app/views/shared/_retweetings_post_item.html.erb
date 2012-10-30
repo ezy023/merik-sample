@@ -1,0 +1,10 @@
+<% unless current_user?(object.user) %>
+	<div id="repost-form-<%= object.id %>">
+		<% if !current_user?(object.user) && !current_user.retweeting?(object) %>
+			<%= render partial: 'shared/retweet', :locals => { object: object } %>
+
+		<% elsif !current_user?(object.user) && current_user.retweeting?(object) %>
+			<%= render partial: 'shared/un_retweet', :locals => { object: object } %>		
+		<% end %>
+	</div>
+<% end %>

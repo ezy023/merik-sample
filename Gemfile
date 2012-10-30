@@ -7,12 +7,14 @@ gem 'faker', '1.0.1'
 gem 'will_paginate', '3.0.3'
 gem 'bootstrap-will_paginate', '0.0.6'
 gem 'carrierwave'
-gem 'soundmanager-rails'
+gem 'soundmanager-rails', '0.1.1'
 gem 'active_attr'
 gem 'rmagick'
 gem 'fog'
 gem 'figaro'
 gem 'heroku'
+gem 'nifty-generators'
+gem 'gon'
 # gem 'carrierwave', :git => 'git://github.com/jnicklas/carrierwave.git'
 # gem 'soundmanager-rails', :git => 'git://github.com/glaszig/soundmanager-rails.git'
 # gem 'active_attr', :git => 'git://github.com/cgriego/active_attr.git'
@@ -61,3 +63,5 @@ end
 
 # To use debugger
 # gem 'debugger'
+
+# gem "mocha", :group => :test

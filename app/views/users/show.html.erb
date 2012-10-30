@@ -31,14 +31,23 @@
 			</ul>
 			<%= will_paginate @microposts %>
 		<% else %>
-		<div class="well well-small span7">
-			<div class="empty-feed">
-				<h4>There is nothing here yet.</h4>
-				<p>Search for music above, or click on 'Users' to connect with awesome people!</p>
-				<p>Or</p>
-				<p>Go to your home page and post your own song!</p>
-			</div>
-		</div>
+			<% if current_user == @user %>
+				<div class="empty-feed">
+					<h4>There is nothing here yet.</h4>
+					<h5>Start by Following some people</h5>
+					<h5>or</h5>
+					<h5>Search for music above, and Post your own songs on the left</h5>
+					<div id="suggested-users-well">
+						<div class="well">
+							<h6>Here are a few awesome people</h6>
+							<ul class="users">
+								<%= render 'users/suggested' %>
+							</ul>
+						<div>
+						<h6>You can find more people to follow by clicking '<%= link_to "People", users_path %>' above.</h6>
+					</div>	
+				</div>
+			<% end %>
 		<% end %>
 	</div>
 </div>

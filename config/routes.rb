@@ -1,5 +1,7 @@
 SampleApp::Application.routes.draw do
 
+  
+
   resources :users do
   	member do
   		get :following, :followers
@@ -12,6 +14,7 @@ SampleApp::Application.routes.draw do
   resources :retweetings, only: [:create, :destroy]
   resources :password_resets
   resources :messages # for sending emails
+  resources :invitations
   
   match '/signup', to: 'users#new'
   match '/signin', to: 'sessions#new'
@@ -23,6 +26,8 @@ SampleApp::Application.routes.draw do
   match '/about', to: 'static_pages#about'
   match '/contact', to: 'messages#new'
   match '/advertisement', to: 'messages#new'
+
+  match '/signup/:invitation_token', :controller => 'users', :action => 'new'
 
   resources :microposts do
     member do

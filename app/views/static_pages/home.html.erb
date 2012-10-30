@@ -1,24 +1,31 @@
 <% if signed_in? %>
 	<div class="row">
-		<aside class="span3">
+		<aside class="span4">
 			<section>
 				<%= render 'shared/user_info' %>
 			</section>
 			<section>
 				<%= render 'shared/stats' %>
 			</section>
-			<section  id="post-button">
-				<%= render 'shared/micropost_form' %>
-			</section>
+			<div id="invite-well" class="well well-small">
+				<section>
+					<%= render 'shared/user_bar' %>
+				</section>
+			</div>
+			<div id="post-form-well" class="well">
+				<section>
+					<%= render 'shared/micropost_form' %>
+				</section>
+			</div>
 		</aside>
 		<div class="span7 offset1">
-			<h3>Sound Stream</h3>
+			<h3 id="sound-stream">My Sound Stream</h3>
 			<%= render 'shared/feed' %>
 		</div>
 	</div>
 <% else %>	
 	<div class="center hero-unit well">
-	  <h1>Muserik</h1>
+	  <h1>MUSERIK</h1>
 	  <h2>New music discovering You.</h2>
 	  <br>
 	  <br>

@@ -1,0 +1,1 @@
+$('#repost-form-<%= @post.id %>').html("<%= escape_javascript(render partial: 'shared/un_retweet', :locals => { object: @post }) %>")

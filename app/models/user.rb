@@ -10,7 +10,7 @@
 #
 
 class User < ActiveRecord::Base
-  attr_accessible :email, :name, :password, :password_confirmation, :image, :remote_image_url, :summary, :username
+  attr_accessible :email, :name, :password, :password_confirmation, :image, :remote_image_url, :summary, :username, :invitation_token
   has_secure_password
   has_many :microposts, dependent: :destroy
   has_many :relationships, foreign_key: "follower_id", dependent: :destroy
@@ -20,6 +20,11 @@ class User < ActiveRecord::Base
   #for retweets
   has_many :retweetings, foreign_key: "retweeter_id"
   has_many :retweets, through: :retweetings, :class_name => 'Micropost'
+  #for beta invites
+  has_many :sent_invitations, :class_name => 'Invitation', :foreign_key => 'sender_id'
+  belongs_to :invitation
+
+  before_create :set_invitation_limit
 
 
   mount_uploader :image, ImageUploader
@@ -35,6 +40,8 @@ class User < ActiveRecord::Base
   validates :password, presence: true, length: { minimum: 6 }, on: :create
   validates :password_confirmation, presence: true, on: :create
   validates :username, uniqueness: true
+  # validates_presence_of :invitation_id, :message => "is required"
+  # validates_uniqueness_of :invitation_id
   
   def feed
   	Micropost.from_users_followed_by(self)
@@ -88,6 +95,14 @@ class User < ActiveRecord::Base
   	UserMailer.password_reset(self).deliver
   end
 
+  def invitation_token
+    invitation.token if invitation
+  end
+
+  def invitation_token=(token)
+    self.invitation = Invitation.find_by_token(token)
+  end
+
   # def send_contact_us(message)
   #     @message = message
   #     UserMailer.contact_us(@message, self).deliver
@@ -99,4 +114,8 @@ class User < ActiveRecord::Base
   	def create_remember_token
   		self.remember_token = SecureRandom.urlsafe_base64
   	end
+
+    def set_invitation_limit
+      self.invitation_limit = 5
+    end
 end

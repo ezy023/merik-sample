@@ -21,6 +21,10 @@ body {
   padding-top: 80px;
 }
 
+html, body {
+  height: 100%;
+}
+
 section {
   overflow: auto;
 }
@@ -89,6 +93,7 @@ footer {
   padding-top: 5px;
   border-top: 1px solid $grayMediumLight;
   color: $grayLight;
+  clear: both;
   a {
     color: $gray;
     &:hover { 
@@ -332,6 +337,30 @@ input.search-query {
   margin-right: auto;
   margin-left: auto;
 }
+
+#post-form-well {
+  background-color: $gray;
+  color: white;
+  text-align: center;
+}
+
+div#suggested-users-well{
+  margin-right: 2.75em;
+  margin-left: 2.75em;
+}
+
+h3#sound-stream {
+  text-align: center;
+  padding-bottom: 1em;
+}
+
+h3#song-form-title{
+  text-align: center;
+  padding-bottom: 1em;
+  color: white;
+}
+
+
 
 
 

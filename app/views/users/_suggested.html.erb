@@ -1,0 +1,12 @@
+<% users = User.all %>
+<% suggested = users[0..5] %>
+<ul>
+<% suggested.each do |user| %>
+	<li>
+			<%= image_tag user.image_url(:mini).to_s %>
+			<%= link_to user.name, user %>
+			<span class="index-profile-summary"><%= user.summary %></span>
+			<%= render 'users/follow_form' %>
+	</li>
+<% end %>
+</ul>
