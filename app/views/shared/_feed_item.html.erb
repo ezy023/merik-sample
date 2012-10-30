@@ -9,7 +9,7 @@
 		<%= feed_item.user.name %> posted <%= time_ago_in_words(feed_item.created_at) %> ago.
 	</div>
 
-	<% if current_user.retweeting?(feed_item) %>
+	<% if @user.retweeting?(feed_item) %>
 		<%= render partial: 'shared/icon_retweet',  :locals => { object: feed_item } %>
 	<% end %>
 

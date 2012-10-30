@@ -10,9 +10,9 @@
 		<%= micropost.user.name %> posted <%= time_ago_in_words(micropost.created_at) %> ago.
 	</div>
 
-	<div id="icon-<%= micropost.id %>">
-		<%= render partial: 'shared/icon_retweet', :locals => { object: micropost } %>
-	</div>
+	<% if current_user.retweeting?(micropost) %>
+			<%= render partial: 'shared/icon_retweet', :locals => { object: micropost } %>
+	<% end %>
 	
 
 	<% if current_user?(micropost.user) %>

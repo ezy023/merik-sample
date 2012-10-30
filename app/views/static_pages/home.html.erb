@@ -36,6 +36,17 @@
 	<span>
 		<a href="#signInModal" role="button" class="btn btn-large btn-primary" data-toggle="modal">Sign In</a>
 	</span>
+	</div>
+	<div class="well well-small">
+		<p>We are currently in private beta. Please submit your email address below, and we will notify you when we are ready to accept more users.</p>
+
+			<%= form_for Invitation.new do |f| %>
+			  <p>
+			    <%= f.label :recipient_email, "Your Email:" %>
+			    <%= f.text_field :recipient_email %>
+			    <%= f.submit 'Submit' %>
+			  </p>
+			<% end %>
 	</div> 
 	  <div class="status-log">
 	  	<%= render 'statuslog' %>
@@ -98,4 +109,6 @@
 					  </div>
 				</div>	
 <% end %>
+
+
 

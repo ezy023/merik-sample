@@ -17,9 +17,11 @@ class User < ActiveRecord::Base
   has_many :followed_users, through: :relationships, source: :followed
   has_many :reverse_relationships, foreign_key: "followed_id", class_name: "Relationship", dependent: :destroy
   has_many :followers, through: :reverse_relationships, source: :follower
+  
   #for retweets
   has_many :retweetings, foreign_key: "retweeter_id"
   has_many :retweets, through: :retweetings, :class_name => 'Micropost'
+  
   #for beta invites
   has_many :sent_invitations, :class_name => 'Invitation', :foreign_key => 'sender_id'
   belongs_to :invitation
@@ -40,8 +42,8 @@ class User < ActiveRecord::Base
   validates :password, presence: true, length: { minimum: 6 }, on: :create
   validates :password_confirmation, presence: true, on: :create
   validates :username, uniqueness: true
-  # validates_presence_of :invitation_id, :message => "is required"
-  # validates_uniqueness_of :invitation_id
+  validates_presence_of :invitation_id, :message => "is required"
+  validates_uniqueness_of :invitation_id
   
   def feed
   	Micropost.from_users_followed_by(self)
