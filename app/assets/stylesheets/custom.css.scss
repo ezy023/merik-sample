@@ -261,6 +261,7 @@ aside {
 input.search-query {
 	border-radius: 15px !important;
   width: 18em;
+  background-color: white !important;
 }
 
 .edit-user-image {
@@ -339,9 +340,13 @@ input.search-query {
 }
 
 #post-form-well {
-  background-color: #5588bb;
+  background-color: #1975FF;
   color: white;
   text-align: center;
+
+  -moz-box-shadow: 10px 10px 5px #888;
+  -webkit-box-shadow: 10px 10px 5px #888;
+  box-shadow: 10px 10px 5px #888; 
 }
 
 div#suggested-users-well{
@@ -371,4 +376,8 @@ h3#song-form-title{
   width: 22em;
   border-radius: 2em;
   text-align: center;
+}
+
+.contact-form {
+  width: 250px !important;
 }

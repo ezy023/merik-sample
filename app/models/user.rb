@@ -41,9 +41,9 @@ class User < ActiveRecord::Base
   						uniqueness: { case_sensitvie: false }
   validates :password, presence: true, length: { minimum: 6 }, on: :create
   validates :password_confirmation, presence: true, on: :create
-  validates :username, uniqueness: true
-  validates_presence_of :invitation_id, :message => "is required"
-  validates_uniqueness_of :invitation_id
+  validates_uniqueness_of :username
+  # validates_presence_of :invitation_id, :message => "is required"
+  # validates_uniqueness_of :invitation_id
   
   def feed
   	Micropost.from_users_followed_by(self)

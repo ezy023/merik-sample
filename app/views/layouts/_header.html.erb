@@ -3,19 +3,7 @@
     <div class="container">
       <%= link_to "muserik", root_path, id: "logo", class: "pull-left brand" %>
 
-        <ul class="nav pull-right">
-        <li class="divider-vertical"></li>
-        <% if signed_in? %>
-        <li id="search-popover">
-        <%= form_tag microposts_path, method: 'get', class: "navbar-search" do %>
-          		
-          			<%= text_field_tag :search, params[:search], placeholder: "Title, Artist, or Genre", class: "input-medium search-query" %>
-          			
-          		
-          		<% end %>
-        </li>
-        <% end %>
-        <li class="divider-vertical"></li>
+        <ul class="nav pull-left">
         <li><%= link_to "Home", root_path, class: "pull-right" %></li>
 
           		
@@ -38,6 +26,17 @@
           <% else %>
             <li><%= link_to "Sign in", signin_path %></li>
           <% end %>
+          <li class="divider-vertical"></li>
+          <% if signed_in? %>
+          <li id="search-popover">
+          <%= form_tag microposts_path, method: 'get', class: "navbar-search" do %>
+                
+                  <%= text_field_tag :search, params[:search], placeholder: "Title, Artist, or Genre", class: "input-medium search-query" %>
+                
+                <% end %>
+          </li>
+          <% end %>
+          <li class="divider-vertical"></li>
         </ul>
     </div>
   </div>
