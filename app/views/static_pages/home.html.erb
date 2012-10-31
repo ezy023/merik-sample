@@ -7,11 +7,7 @@
 			<section>
 				<%= render 'shared/stats' %>
 			</section>
-			<div id="invite-well" class="well well-small">
-				<section>
-					<%= render 'shared/user_bar' %>
-				</section>
-			</div>
+
 			<div id="post-form-well" class="well">
 				<section>
 					<%= render 'shared/micropost_form' %>
@@ -28,7 +24,7 @@
 	  <h1>MUSERIK</h1>
 	  <h2>New music discovering You.</h2>
 	  <br>
-	  <br>
+
 	<span>
 		<a href="#signUp" role="button" class="btn btn-large btn-success" data-toggle="modal">Sign Up!</a>
 	</span>
@@ -37,17 +33,6 @@
 		<a href="#signInModal" role="button" class="btn btn-large btn-primary" data-toggle="modal">Sign In</a>
 	</span>
 	</div>
-	<div class="well well-small">
-		<p>We are currently in private beta. Please submit your email address below, and we will notify you when we are ready to accept more users.</p>
-
-			<%= form_for Invitation.new do |f| %>
-			  <p>
-			    <%= f.label :recipient_email, "Your Email:" %>
-			    <%= f.text_field :recipient_email %>
-			    <%= f.submit 'Submit' %>
-			  </p>
-			<% end %>
-	</div> 
 	  <div class="status-log">
 	  	<%= render 'statuslog' %>
 	  </div>

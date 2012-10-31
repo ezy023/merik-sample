@@ -339,7 +339,7 @@ input.search-query {
 }
 
 #post-form-well {
-  background-color: $gray;
+  background-color: #5588bb;
   color: white;
   text-align: center;
 }
@@ -360,9 +360,15 @@ h3#song-form-title{
   color: white;
 }
 
+#invite-well {
+}
 
+#beta-notice {
+  color: #3366FF;
+}
 
-
-
-
-
+#beta-text-field {
+  width: 22em;
+  border-radius: 2em;
+  text-align: center;
+}
