@@ -50,7 +50,19 @@ h1 {
   font-size: 3em;
   letter-spacing: -2px;
   margin-bottom: 30px;
+  padding-bottom: .25em;
   text-align: center;
+}
+
+.sub-header-section h1 {
+  font-size: 4em !important;
+  letter-spacing: -2px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.sub-header-section:hover + .info-panes {
+    display:  block;
 }
 
 h2 {
@@ -274,7 +286,7 @@ input.search-query {
 }
 
 .dj-image {
-  background-image: url('muserik_home_background.jpg');
+  background-image: url('muserik_home_background.jpg') ;
   /*background-size: 100% Auto; */
 }
 
@@ -381,3 +393,53 @@ h3#song-form-title{
 .contact-form {
   width: 250px !important;
 }
+
+.hero-unit{
+  background: url('crowd.jpg') no-repeat !important;
+}
+
+.info-panes {
+  display: none;
+}
+
+.info-pane {
+  height: 10em;
+  text-align: center;
+  border-radius: 1.75em !important;
+}
+
+#info-pane1{
+  background-color: #33AD5C !important;
+  -webkit-box-shadow: 0 8px 6px -6px black;
+   -moz-box-shadow: 0 8px 6px -6px black;
+        box-shadow: 0 8px 6px -6px black;
+}
+#info-pane2{
+  background-color: #FFFF66 !important;
+  -webkit-box-shadow: 0 8px 6px -6px black;
+   -moz-box-shadow: 0 8px 6px -6px black;
+        box-shadow: 0 8px 6px -6px black;
+}
+#info-pane3{
+  background-color: #944D94 !important;
+  -webkit-box-shadow: 0 8px 6px -6px black;
+   -moz-box-shadow: 0 8px 6px -6px black;
+        box-shadow: 0 8px 6px -6px black;
+}
+
+.jumbotron {
+  position: relative;
+  padding: 7em 0;
+  margin-top: -1.44em;
+  width: 100%;
+  color: #fff;
+  text-align: center;
+  text-shadow: 0 1px 3px rgba(0,0,0,.4), 0 0 30px rgba(0,0,0,.075);
+  height: 60em;
+  background: url('crowd.jpg') no-repeat top !important;
+}
+
+.sub-header-section {
+  padding-top: 10em;
+}
+

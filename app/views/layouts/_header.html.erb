@@ -28,7 +28,7 @@
           <% end %>
           <li class="divider-vertical"></li>
           <% if signed_in? %>
-          <li id="search-popover">
+          <li id="search-popover center">
           <%= form_tag microposts_path, method: 'get', class: "navbar-search" do %>
                 
                   <%= text_field_tag :search, params[:search], placeholder: "Title, Artist, or Genre", class: "input-medium search-query" %>

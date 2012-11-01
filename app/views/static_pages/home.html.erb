@@ -1,4 +1,5 @@
 <% if signed_in? %>
+<div class="container-fluid">
 	<div class="row">
 		<aside class="span4">
 			<section>
@@ -19,9 +20,12 @@
 			<%= render 'shared/feed' %>
 		</div>
 	</div>
+</div>
 <% else %>	
-	<div class="center hero-unit well">
-	  <h1>MUSERIK</h1>
+	<div class="jumbotron masthead">
+	<div class="container-fluid">
+	  <div class="sub-header-section span4">
+	  <h1>MUSERIK</h1>	  
 	  <h2>New music discovering You.</h2>
 	  <br>
 
@@ -33,7 +37,9 @@
 		<a href="#signInModal" role="button" class="btn btn-large btn-primary" data-toggle="modal">Sign In</a>
 	</span>
 	</div>
-	  <div class="status-log">
+	</div>
+	</div>
+	  <div class="status-log well">
 	  	<%= render 'statuslog' %>
 	  </div>
 
@@ -97,6 +103,17 @@
 					  </div>
 				</div>	
 <% end %>
+	  <div class="span4 info-panes">
+		  <div id="info-pane1" class="span3 well info-pane">
+		  	<h3>Follow</h3>
+		  </div>
+		  <div id="info-pane2" class="span3 well info-pane">
+		  	<h3>Listen</h3>
+		  </div>
+		  <div id="info-pane3" class="span3 well info-pane">
+		  	<h3>Announce</h3>
+		  </div><br>
+	  </div>
 
 
 
