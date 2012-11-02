@@ -1,44 +1,78 @@
 <% if signed_in? %>
-<div class="container-fluid">
-	<div class="row">
-		<aside class="span4">
-			<section>
-				<%= render 'shared/user_info' %>
-			</section>
-			<section>
-				<%= render 'shared/stats' %>
-			</section>
-
-			<div id="post-form-well" class="well">
+	<div class="container-fluid">
+		<div class="row">
+			<aside class="span4">
 				<section>
-					<%= render 'shared/micropost_form' %>
+					<%= render 'shared/user_info' %>
 				</section>
+				<section>
+					<%= render 'shared/stats' %>
+				</section>
+				<% if current_user.invitation_limit > 0 %>
+					<div class="well">
+						<section>
+							<%= render 'shared/user_bar' %>
+						</section>
+					</div>
+				<% end %>
+				<div id="post-form-well" class="well">
+					<section>
+						<%= render 'shared/micropost_form' %>
+					</section>
+				</div>
+			</aside>
+			<div class="span7 offset1">
+				<h3 id="sound-stream">My Sound Stream</h3>
+				<div class="well well-small"><%= render 'shared/feed' %></div>
 			</div>
-		</aside>
-		<div class="span7 offset1">
-			<h3 id="sound-stream">My Sound Stream</h3>
-			<%= render 'shared/feed' %>
 		</div>
 	</div>
-</div>
 <% else %>	
 	<div class="jumbotron masthead">
-	<div class="container-fluid">
-	  <div class="sub-header-section span4">
-	  <h1>MUSERIK</h1>	  
-	  <h2>New music discovering You.</h2>
-	  <br>
+			<div class="container-fluid">
 
-	<span>
-		<a href="#signUp" role="button" class="btn btn-large btn-success" data-toggle="modal">Sign Up!</a>
-	</span>
-	<span>Or</span>
-	<span>
-		<a href="#signInModal" role="button" class="btn btn-large btn-primary" data-toggle="modal">Sign In</a>
-	</span>
+			    <div class="sub-header-section span4">
+				    <h1>MUSERIK</h1>	  
+				    <h2>New music discovering You.</h2>
+				   
+				    <span class="span3 home-sign-in pull-left">
+						<%= form_for(:session, url: sessions_path) do |f| %>
+					
+							<%= f.text_field :email, placeholder: "Email" %>
+
+							<%= f.password_field :password, placeholder: "Password" %>
+							<%= f.submit "Sign in", class: "btn" %>
+							<%= link_to "Forgot Password?", new_password_reset_path, class: "btn btn-mini", style: "color: purple" %>
+					<% end %>
+					<span>
+				
+				</div>
+			<!--
+			<span>
+				<a href="#signUp" role="button" class="btn btn-large btn-success" data-toggle="modal">Sign Up!</a>
+			</span>
+			<span>Or</span>
+			<span>
+				<a href="#signInModal" role="button" class="btn btn-large btn-primary" data-toggle="modal">Sign In</a>
+			</span>
+			-->
+			<div class="beta-announce center">
+				<div class="well well-small">
+					<h2>Join Us!</h2><br>
+					<h3 id="beta-notice" style="color: purple;">Enter your email to gain access to the Muserik private beta! We are inviting new people everyday!</h3>
+
+						<%= form_for Invitation.new do |f| %>
+						  <p>
+						    <br>
+						    <%= f.text_field :recipient_email, placeholder: "Your Email", id: "beta-text-field" %><br>
+						    <%= f.submit 'Submit', class: "btn btn-primary" %>
+						  </p>
+						<% end %>
+				</div>
+			</div>
+		</div>
 	</div>
-	</div>
-	</div>
+	
 	  <div class="status-log well">
 	  	<%= render 'statuslog' %>
 	  </div>
@@ -93,8 +127,12 @@
 											<%= f.password_field :password %>
 											
 											<%= f.label :password_confirmation, "Confirmation" %>
-											<%= f.password_field :password_confirmation %>
+											<%= f.password_field :password_confirmation %><br>
+											
+											<%= f.check_box :accepted_terms %> I agree to the <%= link_to "Terms of Use", terms_path, target: '_blank' %>.
 											<br>
+
+
 											<%= f.submit "Create my account", class: "btn btn-large btn-primary" %>
 									<% end %>
 					  </div>
@@ -103,17 +141,6 @@
 					  </div>
 				</div>	
 <% end %>
-	  <div class="span4 info-panes">
-		  <div id="info-pane1" class="span3 well info-pane">
-		  	<h3>Follow</h3>
-		  </div>
-		  <div id="info-pane2" class="span3 well info-pane">
-		  	<h3>Listen</h3>
-		  </div>
-		  <div id="info-pane3" class="span3 well info-pane">
-		  	<h3>Announce</h3>
-		  </div><br>
-	  </div>
 
 
 

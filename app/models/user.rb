@@ -10,7 +10,7 @@
 #
 
 class User < ActiveRecord::Base
-  attr_accessible :email, :name, :password, :password_confirmation, :image, :remote_image_url, :summary, :username, :invitation_token
+  attr_accessible :email, :name, :password, :password_confirmation, :image, :remote_image_url, :summary, :username, :invitation_token, :accepted_terms
   has_secure_password
   has_many :microposts, dependent: :destroy
   has_many :relationships, foreign_key: "follower_id", dependent: :destroy
@@ -42,8 +42,9 @@ class User < ActiveRecord::Base
   validates :password, presence: true, length: { minimum: 6 }, on: :create
   validates :password_confirmation, presence: true, on: :create
   validates_uniqueness_of :username
-  # validates_presence_of :invitation_id, :message => "is required"
-  # validates_uniqueness_of :invitation_id
+  validates_acceptance_of :accepted_terms, :message => "must be checked"
+  validates_presence_of :invitation_id, :message => "is required"
+  validates_uniqueness_of :invitation_id
   
   def feed
   	Micropost.from_users_followed_by(self)
