@@ -42,9 +42,9 @@ class User < ActiveRecord::Base
   validates :password, presence: true, length: { minimum: 6 }, on: :create
   validates :password_confirmation, presence: true, on: :create
   validates_uniqueness_of :username
-  validates_acceptance_of :accepted_terms, :message => "must be checked"
-  validates_presence_of :invitation_id, :message => "is required"
-  validates_uniqueness_of :invitation_id
+  validates_acceptance_of :accepted_terms, :message => "must be checked", on: :create,:accept => true, :allow_nil => false
+  # validates_presence_of :invitation_id, :message => "is required", on: :create
+  # validates_uniqueness_of :invitation_id, on: :create
   
   def feed
   	Micropost.from_users_followed_by(self)
