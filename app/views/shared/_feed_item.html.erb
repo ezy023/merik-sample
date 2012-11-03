@@ -1,6 +1,6 @@
 <li id="<%= feed_item.id %>" class="<%= feed_item.genre %>">
 	<a href="<%= feed_item.song_url.to_s %>" class="song-link btn btn-play"><i class="icon-play"></i></a>
-	<div class="artist">Song: <%= feed_item.title %></div>
+	<div class="artist">Song: <%= feed_item.title %><span class="pull-right genre-tag"><%= feed_item.genre %></span></div>
 	<div class="artist">Artist: <%= feed_item.artist %></div>
 	<%= link_to image_tag(feed_item.user.image.url(:mini)), feed_item.user %>
 	
