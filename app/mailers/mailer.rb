@@ -1,6 +1,6 @@
 class Mailer < ActionMailer::Base
   default from: ENV["GMAIL_USER"]
-  def invitation(invitation, signup_url, user)
+  def invitation(invitation, user, signup_url)
     @signup_url = signup_url
     @user = user
     mail :to => invitation.recipient_email, :subject => 'Invitation'

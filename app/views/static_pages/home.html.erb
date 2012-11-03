@@ -8,7 +8,6 @@
 				<section>
 					<%= render 'shared/stats' %>
 				</section>
-				<!--
 				<% if current_user.invitation_limit > 0 %>
 					<div class="well">
 						<section>
@@ -16,7 +15,6 @@
 						</section>
 					</div>
 				<% end %>
-			-->
 				<div id="post-form-well" class="well">
 					<section>
 						<%= render 'shared/micropost_form' %>
@@ -44,7 +42,7 @@
 
 							<%= f.password_field :password, placeholder: "Password" %>
 							<%= f.submit "Sign in", class: "btn" %>
-							<%= link_to "Forgot Password?", new_password_reset_path, class: "btn btn-mini", style: "color: purple" %>
+							<%= link_to "Forgot Password?", new_password_reset_path, class: "btn btn-mini", style: "color: black" %>
 					<% end %>
 					<span>
 				
@@ -61,7 +59,7 @@
 			<div class="beta-announce center">
 				<div class="well well-small">
 					<h2>Join Us!</h2><br>
-					<h3 id="beta-notice" style="color: purple;">Enter your email to gain access to the Muserik private beta! We are inviting new people everyday!</h3>
+					<h3 id="beta-notice" style="color: black;">Enter your email to gain access to the Muserik private beta! We are inviting more people everyday!</h3>
 
 						<%= form_for Invitation.new do |f| %>
 						  <p>
