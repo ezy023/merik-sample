@@ -22,7 +22,7 @@
     <div>
   	<%= f.label :genre, class: "control-label" %>
   	<div>
-    <%= f.select(:genre, [['None', nil], ['Electronic', 'Electronic'], ['Rock', 'Rock'], ['Country', 'Country'], ['Rap', 'Rap'], ['Classical', 'Classical'], ['Pop', 'Pop']]) %>
+    <%= f.text_field :genre, placeholder: "Genre" %>
     </div>
   </div>
   <%= f.submit "Upload Your Song", class: "btn btn-large btn-success" %>

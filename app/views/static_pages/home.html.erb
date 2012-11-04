@@ -59,7 +59,7 @@
 			<div class="beta-announce center">
 				<div class="well well-small">
 					<h2>Join Us!</h2><br>
-					<h3 id="beta-notice" style="color: black;">Enter your email to gain access to the Muserik private beta! We are inviting more people everyday!</h3>
+					<h3 id="beta-notice" style="color: black;">Enter your email to gain access to the <%= link_to "Muserik", about_path %> private beta! We are inviting more people everyday!</h3>
 
 						<%= form_for Invitation.new do |f| %>
 						  <p>
@@ -68,6 +68,7 @@
 						    <%= f.submit 'Submit', class: "btn btn-primary" %>
 						  </p>
 						<% end %>
+					<h5><%= link_to "What is Muserik?", about_path %></h5>
 				</div>
 			</div>
 		</div>

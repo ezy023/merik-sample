@@ -11,19 +11,16 @@
 	</div>
 
 	<% if signed_in? %>
-	<% if @user.retweeting?(micropost) %>
-			<%= render partial: 'shared/icon_retweet', :locals => { object: micropost } %>
-	<% end %>
-	
+		<% if current_user.retweeting?(micropost) %>
+				<%= render partial: 'shared/icon_retweet', :locals => { object: micropost } %>
+		<% end %>
+		
 
-	<% if current_user?(micropost.user) %>
-    	<%= render partial: 'shared/delete_links', :locals => { object: micropost } %>
-  	<% end %>
-  	<%= render partial: 'shared/retweetings_post_item',  :locals => { object: micropost }  %> 		
+		<% if current_user?(micropost.user) %>
+	    	<%= render partial: 'shared/delete_links', :locals => { object: micropost } %>
+	  	<% end %>
+	  	<%= render partial: 'shared/retweetings_post_item',  :locals => { object: micropost }  %> 		
 
-  	<% if micropost.available? %>
-  		<a href="#" class="btn dl-mini"><i class="icon-download"></i></a>
-  	<% end %>
   	<% end %>
   	
 </li>
