@@ -1,4 +1,4 @@
-<h3 id="song-form-title">What are you listening to?</h3>
+<h3 id="song-form-title">Upload a Song!</h3>
 <%= form_for @micropost, :html => {:multipart => true, class: ""} do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
   <div>
@@ -25,5 +25,5 @@
     <%= f.text_field :genre, placeholder: "Genre" %>
     </div>
   </div>
-  <%= f.submit "Upload Your Song", class: "btn btn-large btn-success" %>
+  <%= f.submit "Upload", class: "btn btn-large btn-success" %>
 <% end %>

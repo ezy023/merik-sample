@@ -19,6 +19,7 @@ html {
 
 body {
   padding-top: 80px;
+  background-attachment: fixed;
 }
 
 html, body {
@@ -106,6 +107,7 @@ footer {
   padding-top: 5px;
   border-top: 1px solid $grayMediumLight;
   color: $grayLight;
+  height: 10em;
   clear: both;
   a {
     color: $gray;
@@ -274,7 +276,7 @@ aside {
 input.search-query {
 	border-radius: 15px !important;
   width: 18em;
-  background-color: white !important;
+ /* background-color: white !important; */
 }
 
 .edit-user-image {
@@ -424,3 +426,6 @@ h3#song-form-title{
   font-size: 90%;
 }
 
+#summary-edit {
+  height: 10em;
+}

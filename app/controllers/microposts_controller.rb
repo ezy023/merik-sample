@@ -6,6 +6,10 @@ class MicropostsController < ApplicationController
 		@microposts = Micropost.paginate(page: params[:page]).search(params[:search])
 	end
 	
+	def show
+		@micropost = Micropost.find_by_id(params[:id])
+	end
+
 	def create
 		@micropost = current_user.microposts.build(params[:micropost])
 		if @micropost.save

@@ -1,0 +1,30 @@
+<div class="span6">
+	<ul class="playlist">
+		<li id="<%= @micropost.id %>" class="<%= @micropost.genre %>">
+			<a href="<%= @micropost.song_url.to_s %>" class="song-link btn btn-play"><i class="icon-play"></i></a>
+			<div class="artist">Song: <%= @micropost.title %><span class="pull-right"><%= @micropost.genre %></span></div>
+			<div class="artist">Artist: <%= @micropost.artist %></div>
+			<%= link_to image_tag(@micropost.user.image.url(:mini)), @micropost.user %>
+			
+			
+
+			<div class="timestamp">
+				<%= @micropost.user.name %> posted <%= time_ago_in_words(@micropost.created_at) %> ago.
+			</div>
+
+			<% if signed_in? %>
+				<% if current_user.retweeting?(@micropost) %>
+						<%= render partial: 'shared/icon_retweet', :locals => { object: @micropost } %>
+				<% end %>
+				
+
+				<% if current_user?(@micropost.user) %>
+			    	<%= render partial: 'shared/delete_links', :locals => { object: @micropost } %>
+			  	<% end %>
+			  	<%= render partial: 'shared/retweetings_post_item',  :locals => { object: @micropost }  %> 		
+
+		  	<% end %>
+		  	
+		</li>
+	</ul>
+</div>

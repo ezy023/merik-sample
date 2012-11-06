@@ -88,6 +88,7 @@ GEM
     gon (4.0.1)
       actionpack (>= 2.3.0)
       json
+    google-analytics-rails (0.0.3)
     heroku (2.32.1)
       heroku-api (~> 0.3.5)
       launchy (>= 0.3.2)
@@ -212,6 +213,7 @@ DEPENDENCIES
   figaro
   fog
   gon
+  google-analytics-rails
   heroku
   jquery-rails (= 2.0.2)
   nifty-generators
