@@ -23,3 +23,6 @@
 
 # Ignore song files
 /public/uploads
+
+#Ignore ssl stuff, for now
+/ssl-cert

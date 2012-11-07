@@ -37,6 +37,8 @@ SampleApp::Application.routes.draw do
     end
   end
  
+ # For user profile vanity urls, current keeps redirecting to user id urls
+  # match "/:username", to: "users#show"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
