@@ -27,4 +27,12 @@
 		  	
 		</li>
 	</ul>
+	<% if @micropost.hashtag? %>
+		<h4 style="text-align: center;">Comments from Twitter.<br> To comment on this song just send a tweet using the hashtag "<%= @micropost.hashtag %>".</h4>
+			<div class="span6">
+				<% Twitter.search("#{@micropost.hashtag} -rt", :count => 30, :result_type => "recent").results.map do |tweet| %>
+					<div class="well well-small"><strong><%= "#{tweet.from_user}" %></strong><%= ": #{tweet.text}" %></div>
+				<% end %>
+			</div>
+	<% end %>
 </div>

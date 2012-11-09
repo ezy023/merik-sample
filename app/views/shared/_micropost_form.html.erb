@@ -13,16 +13,22 @@
     <%= f.text_field :title, placeholder: "Song Title" %>
     </div>
   </div>
-    <div>
+  <div>
   	<%= f.label :artist, class: "control-label" %>
   	<div>
     <%= f.text_field :artist, placeholder: "Artist" %>
     </div>
   </div>
-    <div>
+  <div>
   	<%= f.label :genre, class: "control-label" %>
   	<div>
     <%= f.text_field :genre, placeholder: "Genre" %>
+    </div>
+  </div>
+  <div>
+    <%= f.label :hashtag, class: "control-label" %>
+    <div>
+    <%= f.text_field :hashtag, placeholder: "Hashtag" %>
     </div>
   </div>
   <%= f.submit "Upload", class: "btn btn-large btn-success" %>

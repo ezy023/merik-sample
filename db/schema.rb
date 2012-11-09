@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121028205624) do
+ActiveRecord::Schema.define(:version => 20121109202511) do
 
   create_table "advertisements", :force => true do |t|
     t.datetime "created_at", :null => false
@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(:version => 20121028205624) do
     t.boolean  "available",  :default => false
     t.string   "artist"
     t.string   "genre"
+    t.string   "hashtag"
   end
 
   add_index "microposts", ["user_id", "created_at"], :name => "index_microposts_on_user_id_and_created_at"

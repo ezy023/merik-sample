@@ -1,5 +1,5 @@
 class Micropost < ActiveRecord::Base
-  attr_accessible :content, :song, :title, :available, :genre, :artist, :user_id
+  attr_accessible :content, :song, :title, :available, :genre, :artist, :user_id, :hashtag
   belongs_to :user
   # for retweets
   has_many :retweetings, foreign_key: "retweet_id"
