@@ -6,7 +6,7 @@ class Micropost < ActiveRecord::Base
   has_many :retweeters, through: :retweetings, :class_name => 'User'
   mount_uploader :song, MusicUploader
 
-  # before_save { |post| post.genre = genre.downcase }
+  before_save :remove_hash
   
  # validates :content, presence: true, length: { maximum: 140 }
   validates :user_id, presence: true
@@ -46,6 +46,12 @@ class Micropost < ActiveRecord::Base
       find(:all, :conditions => ['title ILIKE ? OR artist ILIKE ? OR genre ILIKE ?', "%#{search}%", "%#{search}%", "%#{search}%"])
     else
       find(:all)
+    end
+  end
+
+  def remove_hash
+    if self.hashtag[0] == '#'
+      self.hashtag.slice!(0)
     end
   end
 

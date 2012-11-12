@@ -28,11 +28,16 @@
 		</li>
 	</ul>
 	<% if @micropost.hashtag? %>
-		<h4 style="text-align: center;">Comments from Twitter.<br> To comment on this song just send a tweet using the hashtag "<%= @micropost.hashtag %>".</h4>
+	<% variable = "silly" %>
+	<script type="text/javascript" src="//platform.twitter.com/widgets.js"></script>
+		<div class="center">
+			<%= link_to "Comment", "http://twitter.com/intent/tweet?hashtags=#{@micropost.hashtag}&url=http%3A%2F%2Fwww.muserik.com%2Fmicroposts%2F#{@micropost.id}", class: "btn btn-primary btn-large" %>
+		</div>
+		<h6 style="text-align: center;"><%= link_to "Comment", "http://twitter.com/intent/tweet?hashtags=#{@micropost.hashtag}&url=http%3A%2F%2Fwww.muserik.com%2Fmicroposts%2F#{@micropost.id}" %> on this song or send a tweet using the hashtag "#<%= @micropost.hashtag %>".</h6>
 			<div class="span6">
-				<% Twitter.search("#{@micropost.hashtag} -rt", :count => 30, :result_type => "recent").results.map do |tweet| %>
-					<div class="well well-small"><strong><%= "#{tweet.from_user}" %></strong><%= ": #{tweet.text}" %></div>
+				<% Twitter.search("##{@micropost.hashtag} -rt", :count => 30, :result_type => "recent").results.map do |tweet| %>
+					<div class="well well-small"><strong><%= "@#{tweet.from_user}" %></strong><%= ": #{tweet.text}" %></div>
 				<% end %>
-			</div>
+			</div>	
 	<% end %>
 </div>

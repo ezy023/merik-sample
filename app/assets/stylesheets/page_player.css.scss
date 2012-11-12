@@ -129,6 +129,18 @@ ul.playlist li .artist, ul.playlist li .song {
   margin-left: 5em;
 }
 
+ul.playlist li .reposters .repost-link {
+  color: $gray;
+  font-size: 1em;
+  display: inline;
+}
+
+ul.playlist li .hash-link {
+  color: $gray;
+  font-size: 1em;
+  display: inline;
+}
+
 .song-link {
   font-size: .5em;
 }
