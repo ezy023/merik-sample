@@ -19,7 +19,7 @@
 		<div class="reposters">
 			<span>Reposted by: </span>
 			<% feed_item.retweeters.each do |user| %>
-			<%= link_to user.username+",", user, class: "repost-link" %>
+			<%= link_to "#{user.username},", user, class: "repost-link" %>
 			<% end %>
 		</div>
 		<%= render partial: 'shared/icon_retweet',  :locals => { object: feed_item } %>
