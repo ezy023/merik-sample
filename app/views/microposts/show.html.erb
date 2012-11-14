@@ -35,9 +35,9 @@
 		</div>
 		<h6 style="text-align: center; width: 30em; margin: 0 auto;"><%= link_to "Comment", "http://twitter.com/intent/tweet?hashtags=#{@micropost.hashtag}&url=http%3A%2F%2Fwww.muserik.com%2Fmicroposts%2F#{@micropost.id}" %> by sending a tweet using the hashtag "#<%= @micropost.hashtag %>".</h6>
 			<div class="span6">
-				<% Twitter.search("##{@micropost.hashtag} -rt", :count => 30, :result_type => "recent").results.map do |tweet| %>
-					<div class="well well-small"><strong><%= "@#{tweet.from_user}" %></strong><%= ": #{tweet.text}" %></div>
-				<% end %>
+		<% Twitter.search("##{@micropost.hashtag} -rt", :count => 30, :result_type => "recent").results.map do |tweet| %>
+							<div class="well well-small"><strong><%= "@#{tweet.from_user}" %></strong><%= ": #{tweet.text}" %></div>
+						<% end %>
 			</div>	
 	<% end %>
 </div>
