@@ -212,17 +212,22 @@ ul.playlist li.sm2_paused .timestamp {
 	color: white;
 }
 
+/* For the old li play button
 ul.playlist li .btn-play,
 ul.playlist li.sm2_paused .btn-play {
   width: 7em;
   background: #6699cc;
 }
 
-
 ul.playlist li.sm2_playing .btn-play,
 ul.playlist li.sm2_playing:hover .btn-play {
   color: white;
   background: #999;
+}
+*/
+
+ul.playlist li .user-prof-pic {
+  padding-top: .75em;
 }
 
 ul.playlist li .controls {
