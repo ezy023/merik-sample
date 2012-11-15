@@ -1,4 +1,5 @@
 <% provide(:title, 'All users') %>
+<% @user = current_user %>
 <h1>All users</h1>
 
     <%= form_tag users_path, method: 'get', class: "form-search" do %>

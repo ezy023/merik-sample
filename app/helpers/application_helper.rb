@@ -10,6 +10,20 @@ module ApplicationHelper
 		end
 	end
 
+	# def show_user_bg
+	# 	# Show user background
+	# 	if signed_in?
+	# 		if @user.background_image.blank?
+	# 			"background:transparent url('/images/muserik_home_background.jpg') no-repeat fixed left top;"
+	# 		else	
+	# 			"background:transparent url(#{@user.background_image}) fixed left top;"
+	# 		end
+	# 	else
+	# 		"background:transparent url('/images/muserik_home_background.jpg') no-repeat fixed left top;"
+	# 	end
+	# end
+
+
 	# def google_analytics_js
 
 	#     content_tag(:script, :type => 'text/javascript') do

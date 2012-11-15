@@ -60,6 +60,11 @@
       </div>
 
       <div>
+        <%= f.label :background_image %>
+        <%= f.file_field :background_image %>
+      </div>
+
+      <div>
         <%= f.submit "Save changes", class: "btn btn-primary" %>
       </div>
     <% end %>

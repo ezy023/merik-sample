@@ -10,7 +10,7 @@
 #
 
 class User < ActiveRecord::Base
-  attr_accessible :email, :name, :password, :password_confirmation, :image, :remote_image_url, :summary, :username, :invitation_token, :terms, :invitation_limit
+  attr_accessible :email, :name, :password, :password_confirmation, :image, :remote_image_url, :summary, :username, :invitation_token, :terms, :invitation_limit, :background_image
   has_secure_password
   has_many :microposts, dependent: :destroy
   has_many :relationships, foreign_key: "follower_id", dependent: :destroy
@@ -31,6 +31,7 @@ class User < ActiveRecord::Base
 
 
   mount_uploader :image, ImageUploader
+  mount_uploader :background_image, BackgroundUploader
   
   before_save { |user| user.email = email.downcase }
   before_save :create_remember_token
