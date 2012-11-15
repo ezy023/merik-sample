@@ -8,12 +8,15 @@
 		<%= current_user.name %>
 	<% end %>
 </h1>
+<div class="statistics">
+	<%= render 'shared/stats' %>
+</div>
 		<% if current_user.summary? %>
-			<section class="profile-summary">
+			<section class="profile-summary" style="margin-top:2em;">
 				<%= current_user.summary %>
 			</section>
 		<% else %>
-			<section class="profile-summary">
+			<section class="profile-summary" style="margin-top:2em;">
 				<p>(Update your summary in 'Settings')</p>
 			</section>
 		<% end %>

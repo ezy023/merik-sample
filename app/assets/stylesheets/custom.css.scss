@@ -162,6 +162,11 @@ aside {
   }
 }
 
+.statistics {
+  margin-top: -8em;
+  margin-left: 7em;
+}
+
 .stats {
   overflow: auto;
   a {
@@ -358,6 +363,7 @@ input.search-query {
   background-color: #1975FF;
   color: white;
   text-align: center;
+  width: 23.75em; /* width of the overall micropost form well */
 
   -moz-box-shadow: 10px 10px 7px #888;
   -webkit-box-shadow: 10px 10px 7px #888;
