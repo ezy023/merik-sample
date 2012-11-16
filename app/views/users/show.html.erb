@@ -2,15 +2,14 @@
 <div class="row">
 	<aside class="span3">
 		<section>
-			<h1>
-				<%= image_tag @user.image.url(:thumb) %>
-				<% if @user.username? %>
-					<%= @user.username %>
-				<% else %>
-					<%= @user.name %>
-				<% end %>
+			<a href="<%= user_path(@user) %>">
+	        	<%= image_tag @user.image.url(:thumb) %>
+	      	</a>
+	     	<div class="statistics" style="padding-bottom: 1em;">
+	            <%= render 'shared/stats' %>
+	     	</div>
+	      	<h1 style="clear:right;"><%= @user.name %></h1>
 				<%= render 'follow_form' if signed_in? %>
-
 			</h1>
 		</section>
 		<% if @user.summary? %>
@@ -18,9 +17,6 @@
 				<%= @user.summary %>
 			</section>
 		<% end %>
-		<section>
-			<%= render 'shared/stats' %>
-		</section>
 	</aside>
 	<div class="span7 offset1">
 		

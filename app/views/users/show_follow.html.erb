@@ -1,14 +1,15 @@
 <% provide(:title, @title) %>
 <div class="row">
   <aside class="span4">
-    <section class="well user-info-well">
+    <section>
       <a href="<%= user_path(@user) %>">
         <%= image_tag @user.image.url(:thumb) %>
       </a>
-      <h1><%= @user.name %></h1>
       <div class="statistics" style="padding-bottom: 1em;">
             <%= render 'shared/stats' %>
       </div>
+      <h1 style="clear:right;"><%= @user.name %></h1>
+
     </section>
     <section>
       <% if @users.any? %>
