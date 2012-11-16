@@ -2,10 +2,11 @@
        <a href="<%= user_path(current_user) %>">
         <%= image_tag current_user.image.url(:thumb) %>
       </a>
+      <h1 style="clear:right;"><%= current_user.name %></h1>
+      <br>
       <div class="statistics" style="padding-bottom: 1em;">
             <%= render 'shared/stats' %>
       </div>
-      <h1 style="clear:right;"><%= current_user.name %></h1>
 		<% if current_user.summary? %>
 			<section class="profile-summary" style="margin-top:2em;">
 				<%= current_user.summary %>

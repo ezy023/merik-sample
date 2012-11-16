@@ -1,16 +1,17 @@
 <% provide(:title, @user.name) %>
 <div class="row">
-	<aside class="span3">
+	<aside class="span3.5">
 		<section>
 			<a href="<%= user_path(@user) %>">
 	        	<%= image_tag @user.image.url(:thumb) %>
 	      	</a>
-	     	<div class="statistics" style="padding-bottom: 1em;">
-	            <%= render 'shared/stats' %>
-	     	</div>
 	      	<h1 style="clear:right;"><%= @user.name %></h1>
 				<%= render 'follow_form' if signed_in? %>
 			</h1>
+	      	<br>
+	     	<div class="statistics" style="padding-bottom: 1em;">
+	            <%= render 'shared/stats' %>
+	     	</div>
 		</section>
 		<% if @user.summary? %>
 			<section class="profile-summary">
