@@ -10,7 +10,7 @@
     <%= render 'layouts/shim' %> 
     <%= analytics_init if Rails.env.production? %>   
   </head>
-  <body class="dj-image">
+  <body style="<%= show_user_bg %>">
     <%= render 'layouts/header' %>
     <div class="container-fluid">
       <% flash.each do |key, value| %>
