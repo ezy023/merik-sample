@@ -1,10 +1,9 @@
 <% if signed_in? %>
 <div id="user_bar">
-	<p>Welcome <%= current_user.name %> (<%= link_to 'Sign out', signout_path, method: "delete" %>)</p>
 	<% if current_user.invitation_limit > 0 %>
 		<p>
-			<%= link_to 'Invite a friend to Muserik', new_invitation_path %>
-			(<%= current_user.invitation_limit %> left)
+			<%= link_to 'Invite a friend ', new_invitation_path, style: "color: #19D119;" %>
+			<span>(<%= current_user.invitation_limit %>)</span>
 		</p>
 	<% end %>
 <% else %>

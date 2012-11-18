@@ -24,7 +24,7 @@ class UsersController < ApplicationController
   	@user = User.new(params[:user])
   	if @user.save
   		sign_in @user
-  		flash[:success] = "Welcome to the Muzerik! Connect your music interests with people and let new music discover you!"
+  		flash[:success] = "Welcome to the Muzerik Beta! We are still a work in progress and love feedback. Please let us know how we can improve. Enjoy!"
   		redirect_to @user
   	else
   		render 'new'

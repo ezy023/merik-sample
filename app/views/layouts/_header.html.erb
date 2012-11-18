@@ -35,6 +35,11 @@
                 
                 <% end %>
           </li>
+            <% if current_user.invitation_limit > 0 %>
+            <li class="pull-right">
+              <%= render 'shared/user_bar' %>
+            </li>
+            <% end %>
           <% end %>
           <li class="divider-vertical"></li>
         </ul>

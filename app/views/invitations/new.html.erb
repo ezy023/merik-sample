@@ -1,8 +1,10 @@
 <h1>Send invite</h1>
+<h3>Invite a friend to join you in the Muserik Beta</h3>
+<br>
 <div>
 <%= form_for @invitation do |f| %>
-    <%= f.label :recipient_email, "Friend's email address" %><br>
-    <%= f.text_field :recipient_email %>
+    <%= f.label :recipient_email %>
+    <%= f.text_field :recipient_email, placeholder: "Email" %>
 
   <p><%= f.submit "Invite!" %></p>
 <% end %>

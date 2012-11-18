@@ -7,12 +7,3 @@
       <div class="statistics" style="padding-bottom: 1em;">
             <%= render 'shared/stats' %>
       </div>
-		<% if current_user.summary? %>
-			<section class="profile-summary" style="margin-top:2em;">
-				<%= current_user.summary %>
-			</section>
-		<% else %>
-			<section class="profile-summary" style="margin-top:2em;">
-				<p>(Update your summary in 'Settings')</p>
-			</section>
-		<% end %>
