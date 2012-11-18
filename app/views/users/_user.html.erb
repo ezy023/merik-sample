@@ -1,6 +1,6 @@
-<li>
+<li class="well well-small" style="width: 50em;">
 	<%= image_tag user.image_url(:mini).to_s %>
-	<%= link_to user.username, user %>
+	<%= link_to user.username, user, class: "user-index-names" %>
 	<span class="index-profile-summary"><%= user.summary %></span>
 	<% if current_user.admin? && !current_user?(user) %>
 		<%= link_to "delete", user, method: :delete, data: { confirm: "you sure?" } %>

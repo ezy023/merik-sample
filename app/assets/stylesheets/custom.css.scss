@@ -316,7 +316,7 @@ input.search-query {
     text-align: center;
     font-style: italic;
     font-weight: bold;
-    color: #C0C0C0;
+    color: $gray;
     font-family: "Monospace", Monaco, monospace;
     font-size: 70%;
     margin-left: 1em;
@@ -461,3 +461,17 @@ h3#song-form-title{
   margin-top: 1em;
   margin-left: 2em;
 }
+
+/* styling for the user stats well on the home page */
+#user-home-stats {
+  padding-top: 1em;
+  width: 23.75em;
+}
+
+a.user-index-names{
+  font-weight: bold;
+  font-size: 1.25em;
+
+
+}
+

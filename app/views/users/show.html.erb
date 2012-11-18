@@ -1,7 +1,7 @@
 <% provide(:title, @user.name) %>
 <div class="row">
 	<aside class="span3.5">
-		<section>
+		<section id="user-home-stats" class="well well-small">
 			<a href="<%= user_path(@user) %>">
 	        	<%= image_tag @user.image.url(:thumb) %>
 	      	</a>
@@ -12,7 +12,7 @@
 	     	<div class="statistics" style="padding-bottom: 1em;">
 	            <%= render 'shared/stats' %>
 	     	</div>
-		</section>
+		</section class="well well-small">
 		<% if @user.summary? %>
 			<section class="profile-summary">
 				<%= @user.summary %>
