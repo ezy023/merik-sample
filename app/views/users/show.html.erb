@@ -5,9 +5,15 @@
 			<a href="<%= user_path(@user) %>">
 	        	<%= image_tag @user.image.url(:thumb) %>
 	      	</a>
-	      	<h1 style="clear:right;"><%= @user.username %></h1>
-				<%= render 'follow_form' if signed_in? %>
-			</h1>
+	      	<% if @user.username? %>
+		      	<h1 style="clear:right;"><%= @user.username %></h1>
+					<%= render 'follow_form' if signed_in? %>
+				</h1>
+			<% else %>
+		      	<h1 style="clear:right;"><%= @user.name %></h1>
+					<%= render 'follow_form' if signed_in? %>
+				</h1>
+			<% end %>
 	      	<br>
 	     	<div class="statistics" style="padding-bottom: 1em;">
 	            <%= render 'shared/stats' %>
