@@ -18,9 +18,9 @@
 	     	<div class="statistics" style="padding-bottom: 1em;">
 	            <%= render 'shared/stats' %>
 	     	</div>
-		</section class="well well-small">
+		</section>
 		<% if @user.summary? %>
-			<section class="profile-summary">
+			<section class="profile-summary well well-small">
 				<%= @user.summary %>
 			</section>
 		<% end %>

@@ -7,7 +7,7 @@
 	</div>	
 	<div class="artist">Artist: <%= feed_item.artist %></div>
 	<div class="artist"><%= feed_item.genre %></div>
-	<%= link_to image_tag(feed_item.user.image.url(:mini)), feed_item.user, class: "user-prof-pic" %>
+	<%= link_to image_tag(feed_item.user.image.url(:mini)), feed_item.user, class: "user-prof-pic", target: "_blank" %>
 
 	
 
