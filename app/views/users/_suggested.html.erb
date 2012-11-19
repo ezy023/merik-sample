@@ -4,7 +4,11 @@
 <% suggested.each do |user| %>
 	<li>
 			<%= image_tag user.image_url(:mini).to_s %>
-			<%= link_to user.name, user %>
+			<% if user.username? %>
+				<%= link_to user.username, user %>
+			<% else %>
+				<%= link_to user.name, user %>
+			<% end %>
 			<span class="index-profile-summary"><%= user.summary %></span>
 			<%= render 'users/follow_form' %>
 	</li>
