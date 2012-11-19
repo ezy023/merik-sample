@@ -2,7 +2,7 @@
        <a href="<%= user_path(current_user) %>">
         <%= image_tag current_user.image.url(:thumb) %>
       </a>
-      <h1 style="clear:right;"><%= current_user.name %></h1>
+      <h1 style="clear:right;"><%= current_user.username %></h1>
       <br>
       <div class="statistics" style="padding-bottom: 1em;">
             <%= render 'shared/stats' %>

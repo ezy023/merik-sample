@@ -1,11 +1,11 @@
-<% provide(:title, @user.name) %>
+<% provide(:title, @user.username) %>
 <div class="row">
 	<aside class="span3.5">
 		<section id="user-home-stats" class="well well-small">
 			<a href="<%= user_path(@user) %>">
 	        	<%= image_tag @user.image.url(:thumb) %>
 	      	</a>
-	      	<h1 style="clear:right;"><%= @user.name %></h1>
+	      	<h1 style="clear:right;"><%= @user.username %></h1>
 				<%= render 'follow_form' if signed_in? %>
 			</h1>
 	      	<br>
@@ -22,7 +22,7 @@
 	<div class="span7 offset1">
 		
 		<% if @user.microposts.any? || @user.retweets.any? %>
-			<h3> Microposts (<%= @user.microposts.count + @user.retweets.count %>)</h3>
+			<h3> Songs (<%= @user.microposts.count + @user.retweets.count %>)</h3>
 			<ul class="playlist">
 				<%= render @microposts %>
 			</ul>
