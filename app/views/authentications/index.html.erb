@@ -1,4 +1,5 @@
 <% provide(:title, 'Auth') %>
+<% @user = current_user %>
 
 <% if @authentications %>
   <% unless @authentications.empty? %>
