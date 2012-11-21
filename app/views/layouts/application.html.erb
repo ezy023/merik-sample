@@ -13,6 +13,7 @@
   <body style="<%= show_user_bg %>">
     <%= render 'layouts/header' %>
     <div class="container-fluid">
+    <% @user ||= current_user %>
       <% flash.each do |key, value| %>
         <%= content_tag(:div, value, class: "alert alert-#{key}") %>
       <% end %>
