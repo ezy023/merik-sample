@@ -1,8 +1,8 @@
 <li id="<%= micropost.id %>" class="<%= micropost.genre %>">
-	<a href="<%= micropost.song_url.to_s %>" class="song-link"><%= micropost.title %></a>
+	<a href="<%= micropost.song_url.to_s %>" class="song-link"><%= micropost.title %><i class="icon-play" style="margin-left: .5em;"></i></a>
 	<div class="song"><span class="pull-right">
 		<% if micropost.hashtag? %>
-			<span class="pull-right hashtag">#<%= link_to micropost.hashtag, micropost, class: "hash-link", target: "_blank" %></span>
+			<span class="pull-right hashtag btn btn-mini btn-comment"># <%= link_to micropost.hashtag, micropost, class: "hash-link", style: "color: #ffffff", target: "_blank" %></span>
 		<% end %></span></div>
 	<div class="artist">Artist: <%= micropost.artist %></div>
 	<div class="artist"><%= micropost.genre %></div>

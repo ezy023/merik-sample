@@ -2,7 +2,7 @@
 <div class="span6">
 	<ul class="playlist">
 		<li id="<%= @micropost.id %>" class="<%= @micropost.genre %>">
-			<a href="<%= @micropost.song_url.to_s %>" class="song-link"><%= @micropost.title %></a>
+			<a href="<%= @micropost.song_url.to_s %>" class="song-link"><%= @micropost.title %><i class="icon-play" style="margin-left: .5em;"></i></a>
 			<div class="artist"><span class="pull-right"><%= @micropost.genre %></span></div>
 			<div class="artist">Artist: <%= @micropost.artist %></div>
 			<%= link_to image_tag(@micropost.user.image.url(:mini)), @micropost.user, style: "padding-top: 1.5em;" %>
