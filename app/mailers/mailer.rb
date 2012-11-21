@@ -3,7 +3,7 @@ class Mailer < ActionMailer::Base
   def invitation(invitation, signup_url)
     @signup_url = signup_url
     # @user = user
-    mail :to => invitation.recipient_email, :subject => 'Invitation'
+    mail :to => invitation.recipient_email, :subject => 'Muserik Beta Invitation'
    
     # :subject =>    'Invitation'
     # :recipients => invitation.recipient_email
