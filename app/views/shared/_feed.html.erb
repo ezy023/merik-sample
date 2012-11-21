@@ -3,8 +3,9 @@
 	
 		<%= render partial: 'shared/feed_item', collection: @feed_items %>
 	
-	</ul>
 		<% will_paginate @feed_items %>
+	</ul>
+		
 <% else %>
 	<div class="empty-feed">
 		<h3>Songs go here, but there you do not have any...yet</h3><br>
