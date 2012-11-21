@@ -426,3 +426,30 @@ ul.playlist li .peak .r {
 #control-template {
  display:none;
 }
+
+.btn-comment {
+  color: #ffffff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  background-color: #006dcc;
+  *background-color: #6B008F;
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#9900CC), to(#6B008F));
+  background-image: -webkit-linear-gradient(top, #9900CC, #6B008F);
+  background-image: -o-linear-gradient(top, #9900CC, #6B008F);
+  background-image: linear-gradient(to bottom, #9900CC, #6B008F);
+  background-image: -moz-linear-gradient(top, #9900CC, #6B008F);
+  background-repeat: repeat-x;
+  border-color: #6B008F #6B008F #002a80;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  filter: progid:dximagetransform.microsoft.gradient(startColorstr='#ff0088cc', endColorstr='#ff0044cc', GradientType=0);
+  filter: progid:dximagetransform.microsoft.gradient(enabled=false);
+}
+
+.btn-comment:hover,
+.btn-comment:active,
+.btn-comment.active,
+.btn-comment.disabled,
+.btn-comment[disabled] {
+  color: #ffffff;
+  background-color: #6B008F;
+  *background-color: #003bb3;
+}
