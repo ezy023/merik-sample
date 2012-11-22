@@ -25,7 +25,7 @@ class UsersController < ApplicationController
   	if @user.save
   		sign_in @user
   		flash[:success] = "Welcome to the Muzerik Beta! We are still a work in progress and love feedback. Please let us know how we can improve. Enjoy!"
-  		redirect_to @user
+  		redirect_to root_path
   	else
   		render 'new'
   	end  	
