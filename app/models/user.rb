@@ -47,6 +47,9 @@ class User < ActiveRecord::Base
   validates_acceptance_of :terms
   validates_presence_of :invitation_id, :message => "is required", on: :create
   validates_uniqueness_of :invitation_id, on: :create
+
+  extend FriendlyId
+  friendly_id :username, use: :slugged
   
   def feed
   	Micropost.from_users_followed_by(self)

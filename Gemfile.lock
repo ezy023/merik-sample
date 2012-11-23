@@ -87,6 +87,7 @@ GEM
       nokogiri (~> 1.5.0)
       ruby-hmac
     formatador (0.2.3)
+    friendly_id (4.0.9)
     gon (4.0.1)
       actionpack (>= 2.3.0)
       json
@@ -231,6 +232,7 @@ DEPENDENCIES
   faker (= 1.0.1)
   figaro
   fog
+  friendly_id
   gon
   google-analytics-rails
   heroku
