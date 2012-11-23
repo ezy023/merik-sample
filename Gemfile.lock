@@ -125,6 +125,7 @@ GEM
     net-ssh (2.6.0)
       jruby-pageant (>= 1.1.1)
     netrc (0.7.7)
+    newrelic_rpm (3.5.2.17)
     nifty-generators (0.4.6)
     nokogiri (1.5.5)
     oauth (0.4.7)
@@ -237,6 +238,7 @@ DEPENDENCIES
   google-analytics-rails
   heroku
   jquery-rails (= 2.0.2)
+  newrelic_rpm
   nifty-generators
   omniauth-twitter
   pg (= 0.12.2)
