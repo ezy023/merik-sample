@@ -1,6 +1,6 @@
 desc "This will send out the next batch of invites for the beta"
 task :send_invites => :environment do
-  limit = 20
+  limit = 10
   invitation = Invitation.all(:conditions => { :sent_at => nil, :sender_id => nil }, :limit => limit).each do |i|
     Mailer.invitation(i, "http://www.muserik.com/signup/#{i.token}").deliver
     i.sender_id = 0
