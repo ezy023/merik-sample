@@ -12,7 +12,7 @@
 	
 
 	<div class="timestamp">
-		<%= feed_item.user.name %> posted <%= time_ago_in_words(feed_item.created_at) %> ago.
+		<%= feed_item.user.username %> posted <%= time_ago_in_words(feed_item.created_at) %> ago.
 	</div>
 
 	<% if feed_item.retweeters.count > 0 %>

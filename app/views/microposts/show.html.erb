@@ -12,7 +12,7 @@
 			<% end %>
 
 			<div class="timestamp">
-				<%= @micropost.user.name %> posted <%= time_ago_in_words(@micropost.created_at) %> ago.
+				<%= @micropost.user.username %> posted <%= time_ago_in_words(@micropost.created_at) %> ago.
 			</div>
 
 			<% if signed_in? %>
