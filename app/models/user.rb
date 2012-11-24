@@ -82,9 +82,9 @@ class User < ActiveRecord::Base
   def self.search(search)
   	if search
   		# For SQLite
-      # find(:all, :conditions => ['name LIKE ? OR summary LIKE ?', "%#{search}%", "%#{search}%"])
+      # find(:all, :conditions => ['name LIKE ? OR summary LIKE ? OR username LIKE ?', "%#{search}%", "%#{search}%", "%#{search}%"])
       # For Heroku POSTGRESQL
-      find(:all, :conditions => ['name ILIKE ? OR summary ILIKE ?', "%#{search}%", "%#{search}%"])
+      find(:all, :conditions => ['name ILIKE ? OR summary ILIKE ? OR username ILIKE ?', "%#{search}%", "%#{search}%", "%#{search}%"])
   	else
   		find(:all)
   	end
