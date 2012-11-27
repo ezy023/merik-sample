@@ -52,6 +52,13 @@
       <%= f.label :summary, "Summary" %>
       <%= f.text_area :summary, placeholder: "What do you listen to?", id: "summary-edit" %>
 
+      <div class="center">
+        <%= f.label "Links to your other social media accounts" %>
+        Soundcloud: <%= f.text_field :soundcloud_link, placeholder: "Soundcloud URL" %>
+        Facebook: <%= f.text_field :facebook_link, placeholder: "Facebook URL" %>
+        Twitter: <%= f.text_field :twitter_link, placeholder: "Twitter URL" %>
+      </div>
+
       <div>
         <%= f.file_field :image %>
 

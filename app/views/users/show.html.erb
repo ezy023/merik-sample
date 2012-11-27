@@ -24,6 +24,18 @@
 				<%= @user.summary %>
 			</section>
 		<% end %>
+		<section>
+			<h5>Check out <%= @user.username %> on these platforms too!</h5>
+			<% if @user.soundcloud_link? %>
+			<%= link_to image_tag("soundcloud.png"), @user.soundcloud_link, target: "_blank" %>
+			<% end %>
+			<% if @user.facebook_link? %>
+			<%= link_to image_tag("facebook.png"), @user.facebook_link, target: "_blank" %>
+			<% end %>
+			<% if @user.twitter_link? %>
+			<%= link_to image_tag("twitter_64.png"), @user.twitter_link, target: "_blank" %>
+			<% end %>
+		</section>
 	</aside>
 	<div class="span7 offset1">
 		

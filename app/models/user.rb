@@ -10,7 +10,7 @@
 #
 
 class User < ActiveRecord::Base
-  attr_accessible :email, :name, :password, :password_confirmation, :image, :remote_image_url, :summary, :username, :invitation_token, :terms, :invitation_limit, :background_image
+  attr_accessible :email, :name, :password, :password_confirmation, :image, :remote_image_url, :summary, :username, :invitation_token, :terms, :invitation_limit, :background_image, :soundcloud_link, :facebook_link, :twitter_link
   has_secure_password
   has_many :microposts, dependent: :destroy
   has_many :relationships, foreign_key: "follower_id", dependent: :destroy
