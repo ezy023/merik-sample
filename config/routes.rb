@@ -2,6 +2,14 @@ SampleApp::Application.routes.draw do
 
   
 
+  resources :users do
+             resources :private_messages do
+               collection do
+                 post :delete_selected
+               end
+             end
+           end
+
   resources :authentications
 
   resources :users do

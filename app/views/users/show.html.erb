@@ -25,6 +25,9 @@
 			</section>
 		<% end %>
 		<section>
+			<%= link_to "Send Message", new_user_private_message_path(@user, :to => @user.username) %>
+		</section>
+		<section>
 			<h5>Check out <%= @user.username %> on these platforms too!</h5>
 			<% if @user.soundcloud_link? %>
 			<%= link_to image_tag("soundcloud.png"), @user.soundcloud_link, target: "_blank" %>

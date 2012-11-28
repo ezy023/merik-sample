@@ -1,0 +1,38 @@
+<h2>Inbox</h2>
+<table>
+	<tr>
+		<th>Del?</th>
+		<th>Sent</th>
+		<th>Sender</th>
+		<th>Sent</th>
+	</tr>
+	<% if @private_messages.size == 0 %>
+		<tr>
+			<td colspan="4">
+				No messages
+			</td>
+		</tr>
+	<% else %>
+		<% for private_message in @private_messages %>
+			<tr>
+				<td><%= check_box_tag "delete[]", private_message.id %></td>
+				<td>
+					<% if private_message.message_read? %>
+					  <%= link_to h(private_message.subject), user_private_message_path(@user, private_message) %>
+					<% else %>
+					  <strong><%= link_to "#{h(private_message.subject)} (unread)", user_private_message_path(@user, private_message) %></strong>
+					<% end %>
+				</td>
+				<td><%= link_to h(private_message.sender.username), user_path(private_message.sender) %></td>
+		    <td><%=h private_message.created_at.to_s(:long) %></td>
+			</tr>
+		<% end %>
+		<tr>
+			<td colspan="4">
+				<%= submit_tag "Delete" %>
+			</td>
+		</tr>
+	<% end %>
+</table>
+<%= link_to "Sent", user_private_messages_path(@user, :mailbox => :sent)%> |
+<%= link_to "Compose", new_user_private_message_path(@user)%>
