@@ -1,5 +1,5 @@
 <h2>Inbox</h2>
-<table>
+<table class="well well-large">
 	<tr>
 		<th>Del?</th>
 		<th>Sent</th>
@@ -34,5 +34,5 @@
 		</tr>
 	<% end %>
 </table>
-<%= link_to "Sent", user_private_messages_path(@user, :mailbox => :sent)%> |
-<%= link_to "Compose", new_user_private_message_path(@user)%>
+<%= link_to "Sent", user_private_messages_path(@user, :mailbox => :sent), class: "btn btn-mini btn-inverse" %> |
+<%= link_to "Compose", new_user_private_message_path(@user), class: "btn btn-mini btn-inverse"%>

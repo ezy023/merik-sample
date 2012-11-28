@@ -1,5 +1,5 @@
 <h2>Sent</h2>
-<table>
+<table class="well well-large">
 	<tr>
 		<th>Del?</th>
 		<th>Subject</th>
@@ -28,4 +28,4 @@
 		</tr>
  	<% end %>
 </table>
-<%= link_to "Inbox", user_private_messages_path(@user)%>
+<%= link_to "Inbox", user_private_messages_path(@user), class: "btn btn-mini btn-inverse" %>
