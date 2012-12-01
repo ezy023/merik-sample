@@ -1,3 +1,8 @@
+<%= form_tag(soundcloud_path) do %>
+<%= text_field_tag :sc_link %>
+<%= submit_tag "Post Song" %>
+<% end %>
+
 <h3 id="song-form-title">Upload a Song!</h3>
 <%= form_for @micropost, :html => {:multipart => true, class: ""} do |f| %>
   <%= render 'shared/error_messages', object: f.object %>

@@ -29,6 +29,7 @@ SampleApp::Application.routes.draw do
   match '/signup', to: 'users#new'
   match '/signin', to: 'sessions#new'
   match '/signout', to: 'sessions#destroy', via: :delete
+  match 'microposts/soundcloud', to: 'microposts#soundcloud_song', :as => :soundcloud
   match '/auth/:provider/callback' => 'authentications#create'
 
   root to: 'static_pages#home'

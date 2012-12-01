@@ -42,6 +42,36 @@ class MicropostsController < ApplicationController
  #      flash[:error] = "Retweet error!"
  #    end
  #  end
+
+	 def soundcloud_song
+				@link = params[:sc_link]
+				@client_id = ENV['SOUNDCLOUD_CLIENT_ID']
+				client = Soundcloud.new(:client_id => @client_id)
+				track = client.get('/resolve', :url => @link)
+				if track.tracks?
+					track.tracks.each do |t|
+						stream_url = "#{t.stream_url}?client_id=#{@client_id}"
+						@post = current_user.microposts.build(user_id: current_user.id, title: t.title, artist: t.user.username, genre: t.genre, sc_link: stream_url)
+						if @post.save
+							puts "Got #{t.title}"
+						else
+							puts "Not working"
+						end
+					end
+					redirect_to root_url
+				else
+					stream_url = "#{track.stream_url}?client_id=#{@client_id}"
+					@post = current_user.microposts.build(user_id: current_user.id, title: track.title, artist: track.user.username, genre: track.genre, sc_link: stream_url)
+					if @post.save
+						flash[:success] = "Got it!"
+						redirect_to root_url
+					else
+						flash[:error] = "No go bro"
+						redirect_to root_url
+					end
+				end
+
+		end
 	
 
 	

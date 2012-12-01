@@ -1,5 +1,5 @@
 class Micropost < ActiveRecord::Base
-  attr_accessible :content, :song, :title, :available, :genre, :artist, :user_id, :hashtag
+  attr_accessible :content, :song, :title, :available, :genre, :artist, :user_id, :hashtag, :sc_link
   belongs_to :user
   # for retweets
   has_many :retweetings, foreign_key: "retweet_id"
@@ -9,11 +9,12 @@ class Micropost < ActiveRecord::Base
   before_save :remove_hash
   
  # validates :content, presence: true, length: { maximum: 140 }
-  validates :user_id, presence: true
-  validates :song, presence: true
-  validates :title, presence: true
-  validates :artist, presence: true
-  validates :genre, presence: true
+  # validates :user_id, presence: true
+  # validates :song, presence: true
+  # validates :title, presence: true
+  # validates :artist, presence: true
+  # validates :genre, presence: true
+  validate :validations
   
   default_scope order: 'microposts.updated_at DESC'
   
@@ -50,8 +51,23 @@ class Micropost < ActiveRecord::Base
   end
 
   def remove_hash
-    if self.hashtag[0] == '#'
-      self.hashtag.slice!(0)
+    if self.hashtag?
+      if self.hashtag[0] == '#'
+        self.hashtag.slice!(0)
+      end
+    end
+  end
+
+  def validations
+    if sc_link?
+      validates_presence_of :sc_link
+      validates_presence_of :user_id
+    else
+      validates_presence_of :user_id
+      validates_presence_of :song
+      validates_presence_of :title
+      validates_presence_of :artist
+      validates_presence_of :genre
     end
   end
 

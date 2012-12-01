@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121128012628) do
+ActiveRecord::Schema.define(:version => 20121201202433) do
 
   create_table "advertisements", :force => true do |t|
     t.datetime "created_at", :null => false
@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(:version => 20121128012628) do
     t.string   "artist"
     t.string   "genre"
     t.string   "hashtag"
+    t.string   "sc_link"
   end
 
   add_index "microposts", ["user_id", "created_at"], :name => "index_microposts_on_user_id_and_created_at"
@@ -134,6 +135,8 @@ ActiveRecord::Schema.define(:version => 20121128012628) do
     t.string   "soundcloud_link"
     t.string   "facebook_link"
     t.string   "twitter_link"
+    t.string   "twitter_auth"
+    t.string   "soundcloud_auth"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

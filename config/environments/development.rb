@@ -50,4 +50,7 @@ SampleApp::Application.configure do
     :authentication       => 'plain',
     :enable_starttls_auto => true  }
 
+  # ssl fix for omniauth?
+  OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
+
 end
