@@ -26,6 +26,7 @@
 				    <h2>New music discovering You.</h2>
 				   
 				    <span class="span3 home-sign-in pull-left">
+				    	<p style="color:white;">Sign In</p>
 						<%= form_for(:session, url: sessions_path) do |f| %>
 					
 							<%= f.text_field :email, placeholder: "Email" %>
@@ -38,7 +39,7 @@
   <%= image_tag "twitter-sign-in.png", :alt => "Twitter" %>
 </a>
 <a href="/auth/soundcloud" class="auth_provider"><%= image_tag "sc-connect.png", :alt => "Soundcloud" %></a>
-					<span>
+					</span>
 				
 				</div>
 			<!--
@@ -53,15 +54,8 @@
 			<div class="beta-announce center">
 				<div class="well well-small">
 					<h2>Join Us!</h2><br>
-					<h3 id="beta-notice" style="color: black;">Enter your email to gain access to the <%= link_to "Muserik", about_path %> private beta! We are inviting more people everyday!</h3>
+					<h3 id="beta-notice" style="color: black;">We are now open for anyone to join in on our beta launch fun! Sign up and begin sharing and discovering new music   </h3>
 
-						<%= form_for Invitation.new do |f| %>
-						  <p>
-						    <br>
-						    <%= f.text_field :recipient_email, placeholder: "Your Email", id: "beta-text-field" %><br>
-						    <%= f.submit 'Submit', class: "btn btn-primary" %>
-						  </p>
-						<% end %>
 					<h5><%= link_to "What is Muserik?", about_path %></h5>
 				</div>
 			</div>

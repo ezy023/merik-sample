@@ -1,83 +1,84 @@
 <% provide(:title, "Edit user") %> 
 <h1>Update your profile</h1>
 
-<div class="row">
-  <div class="link-twitter-account">
-<% if @user.authentications %>
-  <% unless @user.authentications.empty? %>
-    <p><strong>You can sign in to this account using:</strong></p>
-    <div class="authentications">
-      <% for authentication in @user.authentications %>
-        <div class="authentication">
-
-          <div class="provider"><%= authentication.provider %></div>
-          <div class="uid"><%= authentication.uid %></div>
-          <%= link_to "X", authentication, :confirm => 'Are you sure you want to remove this authentication option?', :method => :delete, :class => "remove" %>
-        </div>
-      <% end %>
-      <div class="clear"></div>
+    <div class="edit-user-image offset1 well">
+      <%= image_tag @user.image_url(:thumb).to_s %>
     </div>
-  <% end %>
-  <br>
-  <br>
-  <p><strong>Add another service to sign in with:</strong></p>
-<% else %>
-  <p><strong>Sign in through one of these services:</strong></p>
-<% end %>
 
-<a href="/auth/twitter" class="auth_provider">
-  <%= image_tag "twitter_64.png", :size => "64x64", :alt => "Twitter" %>
-  Twitter
-</a>
-<div class="clear"></div>
-  <div class="span3 offset3 well settings-form">
+
     <%= form_for @user, :html => {:multipart => true} do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
+      <div class="span4 well well-small user-info-field">
+        <div>
+          <%= f.label :image, "Profile Picture" %>
+          <%= f.file_field :image %>
 
-      <%= f.label :name %>
-      <%= f.text_field :name %>
+          <%= f.label :remote_image_url, "or image URL" %>
+          <%= f.text_field :remote_image_url %>
+        </div>
 
-      <%= f.label :email %>
-      <%= f.text_field :email %>
+        <div>
+          <%= f.label :background_image %>
+          <%= f.file_field :background_image %>
+        </div>
+      </div>
+      <div class="span4 well well-small user-info-field center">
+        <%= f.label :name %>
+        <%= f.text_field :name %>
 
-      <%= f.label :username %>
-      <%= f.text_field :username %>
+        <%= f.label :email %>
+        <%= f.text_field :email %>
 
-      <%= f.label :password %>
-      <%= f.password_field :password %>
+        <%= f.label :username %>
+        <%= f.text_field :username %>
 
-      <%= f.label :password_confirmation, "Confirm Password" %>
-      <%= f.password_field :password_confirmation %>
+        <%= f.label :password %>
+        <%= f.password_field :password %>
 
-      <%= f.label :summary, "Summary" %>
-      <%= f.text_area :summary, placeholder: "What do you listen to?", id: "summary-edit" %>
+        <%= f.label :password_confirmation, "Confirm Password" %>
+        <%= f.password_field :password_confirmation %>
 
-      <div class="center">
+        <%= f.label :summary, "Summary" %>
+        <%= f.text_area :summary, placeholder: "What do you listen to?", id: "summary-edit" %>
+      </div>
+
+      <div class="span4 well well-small user-info-field" style="text-align:right;">
         <%= f.label "Links to your other social media accounts" %>
         Soundcloud: <%= f.text_field :soundcloud_link, placeholder: "Soundcloud URL" %>
         Facebook: <%= f.text_field :facebook_link, placeholder: "Facebook URL" %>
         Twitter: <%= f.text_field :twitter_link, placeholder: "Twitter URL" %>
+        
+        <% if @user.authentications %>
+          <% unless @user.authentications.empty? %>
+            <p><strong>You can sign in to this account using:</strong></p>
+            <div class="authentications">
+              <% for authentication in @user.authentications %>
+                <div class="authentication">
+
+                  <div class="provider"><%= authentication.provider %></div>
+                  <div class="uid"><%= authentication.uid %></div>
+                  <%= link_to "X", authentication, :confirm => 'Are you sure you want to remove this authentication option?', :method => :delete, :class => "remove" %>
+                </div>
+              <% end %>
+              <div class="clear"></div>
+            </div>
+          <% end %>
+          <br>
+          <br>
+          <p><strong>Connect your account with these services</strong></p>
+          <a href="/auth/twitter" class="auth_provider">
+          <%= image_tag "twitter-sign-in.png", :alt => "Twitter" %>
+        </a>
+        <a href="/auth/soundcloud" class="auth_provider"><%= image_tag "sc-connect.png", :alt => "Soundcloud" %></a>
+        <% else %>
+          <p><strong>Sign in through one of these services:</strong></p>
+        <% end %>
       </div>
+      
 
-      <div>
-        <%= f.file_field :image %>
-
-        <%= f.label :remote_image_url, "or image URL" %>
-        <%= f.text_field :remote_image_url %>
-      </div>
-
-      <div>
-        <%= f.label :background_image %>
-        <%= f.file_field :background_image %>
-      </div>
-
-      <div>
-        <%= f.submit "Save changes", class: "btn btn-primary" %>
+      <div class="center">
+        <%= f.submit "Save changes", class: "span5 btn btn-primary update-user-info-button" %>
       </div>
     <% end %>
-  </div>
-    <div class="edit-user-image offset1 well">
-      <%= image_tag @user.image_url(:thumb).to_s %>
-    </div>
-  
-</div>
+
+

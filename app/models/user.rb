@@ -27,10 +27,10 @@ class User < ActiveRecord::Base
   has_many :retweets, through: :retweetings, :class_name => 'Micropost'
   
   #for beta invites
-  has_many :sent_invitations, :class_name => 'Invitation', :foreign_key => 'sender_id'
-  belongs_to :invitation
+  # has_many :sent_invitations, :class_name => 'Invitation', :foreign_key => 'sender_id'
+  # belongs_to :invitation
 
-  before_create :set_invitation_limit
+  # before_create :set_invitation_limit
 
 
   mount_uploader :image, ImageUploader
@@ -48,8 +48,10 @@ class User < ActiveRecord::Base
   validates :password_confirmation, presence: true, on: :create
   validates_uniqueness_of :username
   validates_acceptance_of :terms
-  validates_presence_of :invitation_id, :message => "is required", on: :create
-  validates_uniqueness_of :invitation_id, on: :create
+  
+  # For beta invitations
+  # validates_presence_of :invitation_id, :message => "is required", on: :create
+  # validates_uniqueness_of :invitation_id, on: :create
 
   extend FriendlyId
   friendly_id :username, use: :slugged

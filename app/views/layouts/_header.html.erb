@@ -25,6 +25,7 @@
               </ul>
             </li>
           <% else %>
+            <li><%= link_to "Sign Up!", signup_path %></li>
             <li><%= link_to "Sign in", signin_path %></li>
           <% end %>
           <li class="divider-vertical"></li>
@@ -36,11 +37,6 @@
                 
                 <% end %>
           </li>
-            <% if current_user.invitation_limit > 0 %>
-            <li class="pull-right">
-              <%= render 'shared/user_bar' %>
-            </li>
-            <% end %>
           <% end %>
           <li class="divider-vertical"></li>
         </ul>
