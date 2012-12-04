@@ -60,18 +60,7 @@
 			<% if current_user == @user %>
 				<div class="empty-feed">
 					<h4>Music you post and repost shows up here</h4>
-					<h5>Start by Following some people</h5>
-					<h5>or</h5>
-					<h5>Search for music above</h5>
-					<div id="suggested-users-well">
-						<div class="well">
-							<h6>Here are a few awesome people</h6>
-							<ul class="users">
-								<%= render 'users/suggested' %>
-							</ul>
-						<div>
-						<h6>You can find more people to follow by clicking '<%= link_to "People", users_path %>' above.</h6>
-					</div>	
+					<h5 class="well well-small">You can share music you like from <%= link_to "Soundcloud", root_path %>, or you can <%= link_to "upload", root_path %> your own songs</h5>
 				</div>
 			<% end %>
 		<% end %>
