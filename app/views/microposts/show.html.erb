@@ -2,7 +2,12 @@
 <div class="span6">
 	<ul class="playlist">
 		<li id="<%= @micropost.id %>" class="<%= @micropost.genre %>">
-			<a href="<%= @micropost.song_url.to_s %>" class="song-link"><%= @micropost.title %><i class="icon-play" style="margin-left: .5em;"></i></a>
+			<% if @micropost.sc_link? %>
+				<% url = @micropost.sc_link %>
+			<% else %>
+				<% url = @micropost.song_url.to_s %>
+			<% end %>
+			<a href="<%= url %>" class="song-link" type="audio/mp3"><%= @micropost.title %><i class="icon-play" style="margin-left: .5em;"></i></a>
 			<div class="artist">Artist: <%= @micropost.artist %></div>
 			<div class="artist"><%= @micropost.genre %></div>
 			<%= link_to image_tag(@micropost.user.image.url(:mini)), @micropost.user, style: "padding-top: 1.5em;" %>

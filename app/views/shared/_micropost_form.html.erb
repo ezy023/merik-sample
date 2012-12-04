@@ -1,38 +1,18 @@
-<h3>Post from Soundcloud <i id="what-is-soundcloud" class="icon-question-sign"></i></h3>
-<br>
-<%= form_tag(soundcloud_path) do %>
-<%= text_field_tag :sc_link, nil, placeholder: "Soundcloud Link" %>
-<br>
-<%= submit_tag "Post Song", class: "btn btn-success" %>
-<% end %>
-<h4> ...or... </h4>
-<br>
-<h3 id="song-form-title">Upload a Song</h3>
-<%= form_for @micropost, :html => {:multipart => true, class: ""} do |f| %>
+<div id="micropost-form">
+<button id="song-upload-form-title">Upload a Song</button>
+<div id="micropost-form-fields" class="well well-small">
+<%= form_for @micropost, :html => {:multipart => true, class: "center"} do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
-  <div>
+  <div class="song-upload-fields">
   	<%= f.label :song, class: "control-label" %>
-  	<div> 
   	<%= f.file_field :song %>
-  	</div>
-  </div>
-  <div>
-  	<%= f.label :title, class: "control-label" %>
-  	<div>
+
+ 
     <%= f.text_field :title, placeholder: "Song Title" %>
-    </div>
-  </div>
-  <div>
-  	<%= f.label :artist, class: "control-label" %>
-  	<div>
     <%= f.text_field :artist, placeholder: "Artist" %>
-    </div>
-  </div>
-  <div>
-  	<%= f.label :genre, class: "control-label" %>
-  	<div>
     <%= f.text_field :genre, placeholder: "Genre" %>
-    </div>
-  </div>
-  <%= f.submit "Upload", class: "btn btn-large btn-success" %>
+  <%= f.submit "Upload", class: "btn" %>
+</div>
 <% end %>
+</div>
+</div>

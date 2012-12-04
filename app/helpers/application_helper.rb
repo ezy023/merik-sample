@@ -14,12 +14,12 @@ module ApplicationHelper
 		# Show user background
 		if signed_in?
 			if @user.background_image.blank?
-				"background:transparent url('/assets/gray.jpg') no-repeat fixed left top;"
+				"background:transparent url('/assets/blue.jpg') no-repeat fixed left top; background-size: cover;"
 			else	
 				"background:transparent url(#{@user.background_image}) fixed left top;"
 			end
 		else
-			"background:transparent url('/assets/gray.jpg') no-repeat fixed left top;"
+			"background:transparent url('/assets/gray.jpg') no-repeat fixed left top; background-size: cover;"
 		end
 	end
 

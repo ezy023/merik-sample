@@ -17,7 +17,8 @@
               <ul class="dropdown-menu">
                 <li><%= link_to "My Posts", current_user %></li>
                 <li><%= link_to "My Profile", edit_user_path(current_user) %></li>
-                <li><%= link_to "My Messages", user_private_messages_path(current_user) %></li>
+                <li><%= link_to "My Messages (#{current_user.unread_message_count})", user_private_messages_path(current_user) %>
+                  </li>
                 <li class="divider"></li>
                 <li>
                   <%= link_to "Sign out", signout_path, method: "delete" %>

@@ -6,9 +6,7 @@
 	<% end %>
 	<a href="<%= url %>" type="audio/mp3" class="song-link"><%= feed_item.title %><i class="icon-play" style="margin-left: .5em;"></i></a>
 	<div class="song">
-		<% if feed_item.hashtag? %>
-			<span class="pull-right hashtag btn btn-mini btn-comment"># <%= link_to feed_item.hashtag, feed_item, class: "hash-link", style: "color: #ffffff", target: "_blank" %></span>
-		<% end %>
+			<span class="pull-right btn btn-mini"><%= link_to "", feed_item, class: "icon-comment", target: "_blank" %><span>
 	</div>	
 	<div class="artist">Artist: <%= feed_item.artist %></div>
 	<div class="artist"><%= feed_item.genre %></div>

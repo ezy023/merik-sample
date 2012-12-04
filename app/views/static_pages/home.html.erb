@@ -1,11 +1,14 @@
 <% if signed_in? %>
 	<div class="container-fluid">
 		<div class="row">
-			<aside class="span4">
+			<aside class="span4.5">
 				<section id="user-home-stats" class="well well-small">
 					<%= render 'shared/user_info' %>
 				</section>
-				<div id="post-form-well" class="well">
+				<div>
+					<section>
+						<%= render 'shared/soundcloud_form' %>
+					</section>
 					<section>
 						<%= render 'shared/micropost_form' %>
 					</section>
@@ -54,7 +57,7 @@
 			<div class="beta-announce center">
 				<div class="well well-small">
 					<h2>Join Us!</h2><br>
-					<h3 id="beta-notice" style="color: black;">We are now open for anyone to join in on our beta launch fun! Sign up and begin sharing and discovering new music   </h3>
+					<h3 id="beta-notice" style="color: black;">We are now open for anyone to join in on our beta launch fun! <%= link_to "Sign up", signup_path %> and begin sharing and discovering new music   </h3>
 
 					<h5><%= link_to "What is Muserik?", about_path %></h5>
 				</div>

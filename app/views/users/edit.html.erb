@@ -1,7 +1,7 @@
 <% provide(:title, "Edit user") %> 
 <h1>Update your profile</h1>
 
-    <div class="edit-user-image offset1 well">
+    <div class="edit-user-image offset1 well well-small">
       <%= image_tag @user.image_url(:thumb).to_s %>
     </div>
 
@@ -76,8 +76,8 @@
       </div>
       
 
-      <div class="center">
-        <%= f.submit "Save changes", class: "span5 btn btn-primary update-user-info-button" %>
+      <div class="span12">
+        <%= f.submit "Save changes", class: "btn btn-primary update-user-info-button" %>
       </div>
     <% end %>
 
