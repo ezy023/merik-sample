@@ -25,6 +25,7 @@ SampleApp::Application.routes.draw do
   resources :password_resets
   resources :messages # for sending emails
   resources :invitations
+  resources :comments, only: [:destroy]
   
   match '/signup', to: 'users#new'
   match '/signin', to: 'sessions#new'
@@ -50,7 +51,7 @@ SampleApp::Application.routes.draw do
   end
 
 resources :microposts, only: :show do
-  resources :comments do
+  resources :comments, only: [:create] do
   end
 end
  
