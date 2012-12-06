@@ -1,5 +1,5 @@
 <% @user = current_user %>
-<div class="span6">
+<div class="span4">
 	<ul class="playlist">
 		<li id="<%= @micropost.id %>" class="<%= @micropost.genre %>">
 			<% if @micropost.sc_link? %>
@@ -35,14 +35,23 @@
 		  	
 		</li>
 	</ul>
-	<%= form_tag(micropost_comments_path(@micropost.id)) do %>
-	<%= text_area_tag :comment %>
-	<%= submit_tag "Comment" %>
-	<% end %>
-	<% @micropost.comments.each do |c| %>
-		<div class="well well-small">
-			<strong><%= User.find(c.user_id).username %></strong> <em><%= c.created_at.to_date %></em>
-			<p><%= c.comment %></p>
-		</div>
-	<% end %>
+	<div class="span6" id="comment-form">
+		<%= form_tag(micropost_comments_path(@micropost.id)) do %>
+		<%= text_area_tag :comment, nil, id: "song-comment-box" %>
+		<%= submit_tag "Comment" %>
+		<% end %>
+	</div>
+	<div class="span6" id="comment-stream">
+		<% @micropost.comments.each do |c| %>
+			<div class="well well-small">
+				<% comment_user = User.find(c.user_id) %>
+				<strong><%= link_to comment_user.username, comment_user %></strong> <em><%= c.created_at.to_date %></em>
+				<p><%= c.comment %></p>
+				<%= link_to "Message", new_user_private_message_path(comment_user, :to => comment_user) %>
+				<% if comment_user == current_user %>
+				<%= link_to "Delete" %>
+				<% end %>
+			</div>
+		<% end %>
+	</div>
 </div>

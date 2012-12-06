@@ -5,6 +5,7 @@ $(document).ready(function () {
 
 	// });
 
+
 	$('#what-is-soundcloud').tooltip({
 		placement: 'right',
 		title: 'Post a link to a song (or playlist) on Soundcloud to share it with your followers',
