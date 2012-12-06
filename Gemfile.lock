@@ -37,6 +37,7 @@ GEM
     activesupport (3.2.8)
       i18n (~> 0.6)
       multi_json (~> 1.0)
+    acts_as_commentable (3.0.1)
     addressable (2.3.2)
     annotate (2.5.0)
       rake
@@ -253,6 +254,7 @@ PLATFORMS
 
 DEPENDENCIES
   active_attr
+  acts_as_commentable (= 3.0.1)
   annotate (= 2.5.0)
   bcrypt-ruby (= 3.0.1)
   bootstrap-sass (= 2.0.4)

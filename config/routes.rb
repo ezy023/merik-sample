@@ -48,6 +48,11 @@ SampleApp::Application.routes.draw do
       get :retweet
     end
   end
+
+resources :microposts, only: :show do
+  resources :comments do
+  end
+end
  
  # For user profile vanity urls, current keeps redirecting to user id urls
   # match "/:username", to: "users#show"
