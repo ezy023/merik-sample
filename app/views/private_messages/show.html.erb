@@ -1,3 +1,4 @@
+<div class="well">
 <p><strong>From:</strong> <%= @private_message.sender == @user ? link_to("You", user_path(@user)) : link_to(h(@private_message.sender.username), user_path(@private_message.sender)) %></p>
 <p><strong>Received:</strong> <%= @private_message.created_at.to_s(:long) %></p>
 <p><strong>To:</strong> <%= @private_message.recipient == @user ? link_to("You", user_path(@user)) : link_to(h(@private_message.recipient.username), user_path(@private_message.recipient)) %></p>
@@ -11,3 +12,4 @@
   <% end %>
   <%= link_to "Inbox", user_private_messages_path(@user)%>
 </p>
+</div>
