@@ -19,7 +19,7 @@
 <div class="btn">
 	<a href="<%= user_path(@user) %>">
 		<strong>
-			<%= @user.microposts.count %>
+			<%= @user.microposts.count + @user.retweets.count %>
 		</strong>
 	Songs
 	</a>

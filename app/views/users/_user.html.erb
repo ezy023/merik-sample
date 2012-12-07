@@ -7,7 +7,7 @@
 	<% else %>
 		<%= link_to user.name, user, class: "user-index-names" %>
 	<% end %>
-	<span class="songs-counter-index">Songs: <%= user.microposts.count %></span>
+	<span class="songs-counter-index">Songs: <%= user.microposts.count + user.retweets.count %></span>
 	<span class="index-profile-summary"><%= user.summary %></span>
 	<% if current_user.admin? && !current_user?(user) %>
 		<%= link_to "delete", user, method: :delete, data: { confirm: "you sure?" } %>

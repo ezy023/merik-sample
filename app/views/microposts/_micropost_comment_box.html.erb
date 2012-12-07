@@ -1,0 +1,4 @@
+		<%= form_tag(micropost_comments_path(@micropost.id)) do %>
+		<%= text_area_tag :comment, nil, id: "song-comment-box" %>
+		<%= submit_tag "Post comment" %>
+		<% end %>
