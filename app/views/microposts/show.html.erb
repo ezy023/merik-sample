@@ -38,7 +38,11 @@
 	<div class="span6 center" id="comment-form">
 		<%= render 'micropost_comment_box' %>
 	</div>
-	<div class="span6" id="comment-stream">
-		<%= render 'micropost_comments' %>
-	</div>
+	<% if @micropost.comments.any? %>
+		<div class="span6" id="comment-stream">
+		<%= render partial: 'comment', collection: @micropost.comments %>
+		</div>
+	<% else %>
+		<h2>No Comments</h2>
+	<% end %>
 </div>

@@ -54,6 +54,13 @@ resources :microposts, only: :show do
   resources :comments, only: [:create] do
   end
 end
+
+resources :comments do
+  member do
+    put 'vote_up'
+    put 'vote_down'
+  end
+end
  
  # For user profile vanity urls, current keeps redirecting to user id urls
   # match "/:username", to: "users#show"

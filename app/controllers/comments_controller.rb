@@ -15,4 +15,21 @@ class CommentsController < ApplicationController
 		redirect_to @post
 	end
 
+	def vote_up
+		comment = Comment.find(params[:id])
+		comment.vote :voter => current_user
+		redirect_to :back
+	end
+
+	def vote_down
+		comment = Comment.find(params[:id])
+		comment.vote :voter => current_user, :vote => 'bad'
+		redirect_to :back
+	end
+
+	def comment_feed
+		@post = Micropost.find(params[:micropost_id])
+		@comments = @post.comments
+	end
+
 end
