@@ -19,7 +19,7 @@ class Micropost < ActiveRecord::Base
   validate :validations
   
   scope :by_new, order("created_at DESC")
-  scope :by_top, order("cached_votes_up DESC")
+  scope :by_top, order("cached_votes_up ASC")
   # default_scope order: 'microposts.updated_at DESC'
   
   def self.from_users_followed_by(user)
