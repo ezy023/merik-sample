@@ -1,8 +1,8 @@
 <% if @feed_items.any? %>
-	<span class="toggle-feed-order">Sort by: <strong>New</strong> | <%= link_to "Top", by_top_path %><span>
+	<span class="toggle-feed-order">Sort by: <%= link_to "New", root_path %> | <strong>Top</strong><span>
 	<ul class="playlist">
 	
-		<%= render partial: 'shared/feed_item', collection: @feed_items.by_new %>
+		<%= render partial: 'shared/feed_item', collection: @feed_items.by_top %>
 
 	</ul>
 	<%= will_paginate @feed_items %>

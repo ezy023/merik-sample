@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121211183232) do
+ActiveRecord::Schema.define(:version => 20121213171546) do
 
   create_table "advertisements", :force => true do |t|
     t.datetime "created_at", :null => false
@@ -68,17 +68,23 @@ ActiveRecord::Schema.define(:version => 20121211183232) do
   create_table "microposts", :force => true do |t|
     t.string   "content"
     t.integer  "user_id"
-    t.datetime "created_at",                    :null => false
-    t.datetime "updated_at",                    :null => false
+    t.datetime "created_at",                            :null => false
+    t.datetime "updated_at",                            :null => false
     t.string   "song"
     t.string   "title"
-    t.boolean  "available",  :default => false
+    t.boolean  "available",          :default => false
     t.string   "artist"
     t.string   "genre"
     t.string   "hashtag"
     t.string   "sc_link"
+    t.integer  "cached_votes_total"
+    t.integer  "cached_votes_up"
+    t.integer  "cached_votes_down"
   end
 
+  add_index "microposts", ["cached_votes_down"], :name => "index_microposts_on_cached_votes_down"
+  add_index "microposts", ["cached_votes_total"], :name => "index_microposts_on_cached_votes_total"
+  add_index "microposts", ["cached_votes_up"], :name => "index_microposts_on_cached_votes_up"
   add_index "microposts", ["user_id", "created_at"], :name => "index_microposts_on_user_id_and_created_at"
 
   create_table "private_messages", :force => true do |t|

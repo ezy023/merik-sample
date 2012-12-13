@@ -102,12 +102,12 @@ ul.playlist li a {
 
 /* move delete link to right, make small and red */
 ul.playlist li a.delete-mini {
-  padding: 2px 6px;
+  padding-right: 1px;
   margin-top: -2.75em;
   font-size: 11px;
   line-height: 17px;
   float: right;
-  color: red; 
+  width: 1em; 
 }
 
 /* for download button */
@@ -123,6 +123,16 @@ ul.playlist li a.dl-mini {
 /* reposition the thumbnail of the users profile picture */
 ul.playlist li img {
 	margin-top: -6em;
+  padding-bottom: 1em;
+  padding-right: -1em;
+  padding-left: .5em;
+}
+
+/* voting mechanism positioning */
+ul.playlist li .vote-arrows{
+  margin-top: -6em;
+  margin-left: -.75em;
+  padding-bottom: 2em;
 }
 
 ul.playlist li .artist, ul.playlist li .song {

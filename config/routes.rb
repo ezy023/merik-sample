@@ -41,12 +41,15 @@ SampleApp::Application.routes.draw do
   match '/privacy', to: 'static_pages#privacy'
   match '/contact', to: 'messages#new'
   match '/advertisement', to: 'messages#new'
+  match '/by_top', to: 'static_pages#home_top'
 
   match '/signup/:invitation_token', :controller => 'users', :action => 'new'
 
   resources :microposts do
     member do
       get :retweet
+      put 'vote_up'
+      put 'vote_down'
     end
   end
 

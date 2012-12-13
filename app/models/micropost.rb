@@ -1,6 +1,7 @@
 class Micropost < ActiveRecord::Base
   attr_accessible :content, :song, :title, :available, :genre, :artist, :user_id, :hashtag, :sc_link
   acts_as_commentable
+  acts_as_votable
   belongs_to :user
   # for retweets
   has_many :retweetings, foreign_key: "retweet_id"
@@ -17,7 +18,9 @@ class Micropost < ActiveRecord::Base
   # validates :genre, presence: true
   validate :validations
   
-  default_scope order: 'microposts.updated_at DESC'
+  scope :by_new, order("created_at DESC")
+  scope :by_top, order("cached_votes_up DESC")
+  # default_scope order: 'microposts.updated_at DESC'
   
   def self.from_users_followed_by(user)
     followed = "SELECT followed_id FROM relationships WHERE follower_id = :user_id"

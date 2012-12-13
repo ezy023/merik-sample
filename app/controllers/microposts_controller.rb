@@ -73,6 +73,17 @@ class MicropostsController < ApplicationController
 
 		end
 	
+	def vote_up
+		comment = Micropost.find(params[:id])
+		comment.vote :voter => current_user
+		redirect_to :back
+	end
+
+	def vote_down
+		comment = Micropost.find(params[:id])
+		comment.vote :voter => current_user, :vote => 'bad'
+		redirect_to :back
+	end
 
 	
 	
