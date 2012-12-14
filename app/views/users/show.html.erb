@@ -53,7 +53,7 @@
 		<% if @user.microposts.any? || @user.retweets.any? %>
 			<h3> Songs (<%= @user.microposts.count + @user.retweets.count %>)</h3>
 			<ul class="playlist">
-				<%= render @microposts %>
+				<%= render @microposts.by_new %>
 			</ul>
 			<%= will_paginate @microposts %>
 		<% else %>
