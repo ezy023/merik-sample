@@ -1,0 +1,13 @@
+.container-fluid
+	.row
+		%aside.span5
+			%section.well.well-small#user-home-stats
+				= render 'shared/user_info'
+			%div
+				%section
+					= render 'shared/soundcloud_form'
+				%section
+					= render 'shared/micropost_form'
+		%div.span7.offset1
+			%h3#sound-stream My Sound Stream
+			.well.well-small= render 'shared/feed_top'

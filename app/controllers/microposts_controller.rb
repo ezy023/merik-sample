@@ -3,9 +3,9 @@ class MicropostsController < ApplicationController
 	before_filter :correct_user, only: :destroy
 	
 	def index
-		@microposts = Micropost.paginate(page: params[:page]).search(params[:search])
-	end
-	
+		@microposts = Micropost.by_top.paginate(page: params[:page]).search(params[:search])
+	end	
+
 	def show
 		@micropost = Micropost.find(params[:id])
 	end
