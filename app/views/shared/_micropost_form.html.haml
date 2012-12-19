@@ -1,0 +1,12 @@
+#micropost-form
+	%button#song-upload-form-title Upload a Song
+	.well.well-small#micropost-form-fields
+		=form_for @micropost, :html => {:multipart => true, class: "center"} do |f|
+			=render 'shared/error_messages', object: f.object
+			.song-uploads.fields
+				=f.label :song, class: "control-label"
+				=f.file_field :song
+				=f.text_field :title, placeholder: "Song Title"
+				=f.text_field :title, placeholder: "Artist"
+				=f.text_field :genre, placeholder: "Genre"
+			=f.submit "Upload", class: "btn"

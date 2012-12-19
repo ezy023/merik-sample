@@ -1,0 +1,16 @@
+-if @feed_items.any?
+	=link_to "new", root_path
+	%ul.playlist= render partial: 'shared/feed_item', collection: @feed_items.by_top
+-else
+	.empty-feed
+		%h3 Music goes here, but you do not have any...yet
+		%br/
+		%h3 So...
+		%h5 Search for music above, and Post your own songs on the left
+		%h6 Or
+		%h5 Connect with people and listen to what they are listening to
+		#suggested-users-well
+			.well
+				%h6 Here are a few awesome people
+				%ul= render 'users/suggested'
+			%h6 You can find more people to follow by clicking '#{link_to "People", users_path}' above.

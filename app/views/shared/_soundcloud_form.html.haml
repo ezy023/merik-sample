@@ -1,0 +1,9 @@
+#soundcloud-form
+	%button#share-from-soundcloud Share from Soundcloud
+	%br/
+	.well.well-small.center#soundcloud-upload-field
+		=form_tag(soundcloud_path) do
+			.icon-question-sign#what-is-soundcloud
+			=text_field_tag :sc_link, nil, placeholder: "Soundcloud URL", type: "url"
+			%br/
+			=submit_tag "Post", class: "soundcloud-button"

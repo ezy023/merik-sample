@@ -26,6 +26,7 @@ gem 'simple-private-messages', '0.0.0', :git => 'git://github.com/jongilbraith/s
 gem 'soundcloud'
 gem 'acts_as_commentable', '3.0.1'
 gem 'acts_as_votable', '~> 0.4.0' 
+gem 'haml'
 # gem 'carrierwave', :git => 'git://github.com/jnicklas/carrierwave.git'
 # gem 'soundmanager-rails', :git => 'git://github.com/glaszig/soundmanager-rails.git'
 # gem 'active_attr', :git => 'git://github.com/cgriego/active_attr.git'

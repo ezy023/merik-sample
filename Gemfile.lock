@@ -101,6 +101,8 @@ GEM
       actionpack (>= 2.3.0)
       json
     google-analytics-rails (0.0.3)
+    haml (3.2.0.rc.1)
+      tilt
     hashie (1.2.0)
     heroku (2.32.1)
       heroku-api (~> 0.3.5)
@@ -272,6 +274,7 @@ DEPENDENCIES
   friendly_id
   gon
   google-analytics-rails
+  haml
   heroku
   jquery-rails (= 2.0.2)
   newrelic_rpm

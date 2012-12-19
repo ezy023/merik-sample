@@ -1,0 +1,6 @@
+%a{href: "#{user_path(current_user)}"}
+	=link_to image_tag(current_user.image.url(:thumb)), user_path(current_user)
+	%h1{style: "clear:right;"}= current_user.username
+	%br/
+	%div{class: "statistics", style: "padding-bottome: 1em;"}
+		=render 'shared/stats'
