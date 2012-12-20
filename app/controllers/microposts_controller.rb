@@ -1,6 +1,7 @@
 class MicropostsController < ApplicationController
 	before_filter :signed_in_user, only: [:create, :destroy]
 	before_filter :correct_user, only: :destroy
+	respond_to :html, :json
 	
 	def index
 		@microposts = Micropost.by_top.paginate(page: params[:page]).search(params[:search])
@@ -24,6 +25,12 @@ class MicropostsController < ApplicationController
 	def destroy
 		@micropost.destroy
 		redirect_to root_url
+	end
+
+	def update
+		@micropost = Micropost.find(params[:id])
+		@micropost.update_attributes(params[:micropost])
+		respond_with @micropost
 	end
 
 	# def retweet

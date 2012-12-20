@@ -22,10 +22,4 @@
 						=f.password_field :password, placeholder: "Password"
 						=f.submit "Sign in", class: "btn"
 						=link_to "Forgot Password?", new_password_reset_path, class: "btn btn-mini", style: "color: black"
-				=link_to image_tag("twitter-sign-in.png"), "/auth/twitter", class: "auth_provider"
-				=link_to image_tag("sc-connect.png"), "/auth/soundcloud", class: "auth_provider"
-			.beta-announce.center
-				.well.well-small
-					%h2 Join Us!
-					%h3{id: "beta-notice", style: "color:black;"}We are now open for anyone to join in on our beta launch fun! #{link_to "Sign Up", signup_path} and begin sharing and discovering new music.
-					%h5= link_to "What is Muserik?", about_path
+				

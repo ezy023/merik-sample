@@ -19,7 +19,7 @@ SampleApp::Application.routes.draw do
   end
   
   resources :sessions, only: [:new, :create, :destroy]
-  resources :microposts, only: [:create, :destroy, :index, :show]
+  resources :microposts, only: [:create, :destroy, :index, :show, :update]
   resources :relationships, only: [:create, :destroy]
   resources :retweetings, only: [:create, :destroy]
   resources :password_resets

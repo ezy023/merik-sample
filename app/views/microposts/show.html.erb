@@ -32,6 +32,8 @@
 			  	<%= render partial: 'shared/retweetings_post_item',  :locals => { object: @micropost }  %> 		
 
 		  	<% end %>
+
+		  	<p class="song_description"><%= best_in_place_if current_user == @micropost.user, @micropost, :song_description, type: :textarea %></p>
 		  	
 		</li>
 	</ul>

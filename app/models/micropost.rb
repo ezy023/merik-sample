@@ -1,5 +1,5 @@
 class Micropost < ActiveRecord::Base
-  attr_accessible :content, :song, :title, :available, :genre, :artist, :user_id, :hashtag, :sc_link
+  attr_accessible :content, :song, :title, :available, :genre, :artist, :user_id, :hashtag, :sc_link, :song_description
   acts_as_commentable
   acts_as_votable
   belongs_to :user
@@ -17,6 +17,7 @@ class Micropost < ActiveRecord::Base
   # validates :artist, presence: true
   # validates :genre, presence: true
   validate :validations
+  validates :song_description, length: { maximum: 160 }
   
   scope :by_new, order("created_at DESC")
   scope :by_top, order("cached_votes_up ASC")

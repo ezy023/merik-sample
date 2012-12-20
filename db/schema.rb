@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121213171546) do
+ActiveRecord::Schema.define(:version => 20121219155715) do
 
   create_table "advertisements", :force => true do |t|
     t.datetime "created_at", :null => false
@@ -68,8 +68,8 @@ ActiveRecord::Schema.define(:version => 20121213171546) do
   create_table "microposts", :force => true do |t|
     t.string   "content"
     t.integer  "user_id"
-    t.datetime "created_at",                            :null => false
-    t.datetime "updated_at",                            :null => false
+    t.datetime "created_at",                                                          :null => false
+    t.datetime "updated_at",                                                          :null => false
     t.string   "song"
     t.string   "title"
     t.boolean  "available",          :default => false
@@ -80,6 +80,7 @@ ActiveRecord::Schema.define(:version => 20121213171546) do
     t.integer  "cached_votes_total"
     t.integer  "cached_votes_up"
     t.integer  "cached_votes_down"
+    t.string   "song_description",   :default => "(Click to enter song description)"
   end
 
   add_index "microposts", ["cached_votes_down"], :name => "index_microposts_on_cached_votes_down"
