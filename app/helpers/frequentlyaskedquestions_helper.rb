@@ -1,0 +1,2 @@
+module FrequentlyaskedquestionsHelper
+end

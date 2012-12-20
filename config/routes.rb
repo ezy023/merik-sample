@@ -2,6 +2,8 @@ SampleApp::Application.routes.draw do
 
   
 
+  post "frequentlyaskedquestions/create"
+
   resources :users do
              resources :private_messages do
                collection do

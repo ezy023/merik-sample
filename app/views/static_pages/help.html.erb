@@ -2,8 +2,12 @@
 <% @user = current_user %>
 
     <h1>Frequently Asked Questions</h1>
+        <%= form_tag(frequentlyaskedquestions_create_path) do %>
+        <%= text_field_tag :question, nil, placeholder: "What's your question?" %>
+        <%= submit_tag "Ask" %>
+        <% end %>
 
-    <ul>
+    <ul class="well">
         <li>
             <h4>How do I start playing a song?</h4>
             <p>To start playing a song just click on the songs title. When that song finishes playing it will automatically start playing the next song.</p>
