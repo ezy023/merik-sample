@@ -1,0 +1,20 @@
+= provide(:title, 'Sign up')
+.span6.well
+	%h1 Sign up
+	%h6 Already have an account? #{link_to "Sign In", signin_path}
+	=form_for(@user) do |f|
+		=render 'shared/error_messages', object: f.object
+		=f.label :name
+		=f.text_field :name
+		=f.label :email
+		=f.text_field :email
+		=f.label :username
+		=f.text_field :username
+		=f.label :password
+		=f.password_field :password
+		=f.label :password_confirmation, "Confirmation"
+		=f.password_field :password_confirmation
+		%br/
+		%span #{f.check_box :terms} I agree to the #{link_to "Terms fo Use", terms_path, target: "_blank"}
+		%br/
+		=f.submit "Create my account", class: "btn btn-large btn-primary"

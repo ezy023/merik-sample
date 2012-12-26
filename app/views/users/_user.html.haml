@@ -1,0 +1,7 @@
+%li{class: "well well-small", style: "width: 50em; padding-left: 2px;"}
+	=link_to image_tag(user.image_url(:mini).to_s), user_path(user)
+	=link_to user.username, user, class: "user-index-names"
+	%span.songs-counter-index Songs: #{user.microposts.count + user.retweets.count}
+	%span.index-profile-summary= user.summary
+	-if current_user.admin? && !current_user?(user)
+		=link_to "delete", user, method: :delete, data: {confirm: "you sure?"}

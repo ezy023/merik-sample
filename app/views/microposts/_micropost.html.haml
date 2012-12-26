@@ -1,0 +1,26 @@
+%li{:class => micropost.genre, :id => micropost.id}
+  %a.song-link{:href => micropost.song_url.to_s}
+    = micropost.title
+    %i.icon-play{:style => "margin-left: .5em;"}
+  .song
+    %span.pull-right.btn.btn-mini
+      = link_to "", micropost, class: "icon-share", target: "_blank"
+      %span
+  .artist
+    Artist: #{micropost.artist}
+  .artist= micropost.genre
+  = link_to image_tag(micropost.user.image.url(:mini)), micropost.user, class: "user-prof-pic"
+  - if micropost.retweeters.count > 0
+    %strong= pluralize(micropost.retweeters.count, "Repost")
+  .timestamp
+    = micropost.user.username
+    posted #{time_ago_in_words(micropost.created_at)} ago.
+  = link_to "Vote Up", vote_up_micropost_path(micropost), :method => :put, style: "font-size: 10px;"
+  = link_to "Vote Down", vote_down_micropost_path(micropost), :method => :put, style: "font-size: 10px;"
+  = micropost.likes.size
+  - if signed_in?
+    - if current_user.retweeting?(micropost)
+      = render partial: 'shared/icon_retweet', :locals => { object: micropost }
+    - if current_user?(micropost.user)
+      = render partial: 'shared/delete_links', :locals => { object: micropost }
+    = render partial: 'shared/retweetings_post_item',  :locals => { object: micropost }

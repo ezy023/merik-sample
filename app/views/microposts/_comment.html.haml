@@ -1,0 +1,11 @@
+.well.well-small
+	%strong= User.find(comment.user_id).username
+	%em= comment.created_at.to_date
+	%p= comment.comment
+	=link_to "Vote Up", vote_up_comment_path(comment), method: :put, class: "btn btn-mini"
+	=link_to "Vote Down", vote_down_comment_path(comment), method: :put, class: "btn btn-mini"
+	-if comment.user == current_user
+		=link_to "Delete", comment_path(comment), method: :delete, data: { confirm: "You sure?"}, style: "color:; red;", class: "pull-right"
+	-else
+		=link_to "Message", new_user_private_message_path(comment.user, :to => comment.user.username), class: "pull-right"
+	%h6 #{comment.likes.size} likes

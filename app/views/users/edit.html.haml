@@ -1,0 +1,53 @@
+-provide(:title, "Edit user")
+%h1 Update your profile
+.edit-user-image.offset1.well.well-small
+	=image_tag @user.image_url(:thumb).to_s
+=form_for @user, :html => {:multipart => true} do |f|
+	=render 'shared/error_messages', object: f.object
+	.span4.well.well-small.user-info-field
+		%div
+			=f.label :image, "Profile Picture"
+			=f.file_field :image
+			=f.label :remote_image_url, "or image URL"
+			=f.text_field :remote_image_url
+		%div
+			=f.label :background_image
+			=f.file_field :background_image
+	.span4.well.well-small.user-info-field.center
+		=f.label :name
+		=f.text_field :name
+		=f.label :email
+		=f.text_field :email
+		=f.label :username
+		=f.text_field :username
+		=f.label :password
+		=f.password_field :password
+		=f.label :password_confirmation, "Confirm Password"
+		=f.password_field :password_confirmation
+		=f.label :summary
+		=f.text_area :summary, placeholder: "What do you listen to?", id: "summary-edit"
+	.span4.well.well-small.user-info-field{style: "text-align:right;"}
+		=f.label "Link to your other social profiles"
+		Soundcloud: #{f.text_field :soundcloud_link, placeholder: "Soundcloud URL"}
+		Facebook: #{f.text_field :facebook_link, placeholder: "Facebook URL"}
+		Twitter: #{f.text_field :twitter_link, placeholder: "Twitter URL"}
+		-if @user.authentications
+			-unless @user.authentications.empty?
+				%p You can sign in to this account using:
+				.authentications
+					-for authentication in @user.authentications
+						.authentication
+							.provider= authentication.provider
+							.uid= authentication.uid
+							=link_to "X", authentication, :confirm => "Are you sure you want to remove this authentication option?", :method => :delete, :class => "remove"
+					.clear
+			%br/
+			%br/
+			%p Connect your account with these services
+			=link_to image_tag("twitter-sign-in.png"), "/auth/twitter", class: "auth_provider"
+			=link_to image_tag("sc-connect.png"), "/auth/soundcloud", class: "auth_provider"
+		-else
+			%p Sign in through one of these services:
+	.span12
+		=f.submit "Save changes", class: "btn btn-primary update-user-info-button"
+
