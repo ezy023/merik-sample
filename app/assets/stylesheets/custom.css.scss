@@ -111,21 +111,21 @@ height: 100%;
 margin: 0 auto -4em;
 }
 .footer, .push {
-height: 4em;
 clear:both
 }
 
 footer {
   margin-top: 45px;
   padding-top: 5px;
-  border-top: 1px solid $grayMediumLight;
-  color: $grayLight;
+  color: $gray;
   height: 10em;
   clear: both;
+  font-size: 12px;
+  background-color: #1F1F1F;
   a {
-    color: $gray;
+    color: $grayLight;
     &:hover { 
-      color: green;
+      color: white;
     }
   }  
   small { 
@@ -138,6 +138,13 @@ footer {
       float: left;
       margin-left: 10px;
     }
+  }
+  .social-media-button{
+    margin-left: 20px;
+  }
+  #copyright{
+    text-align: center;
+    padding-top: 2.5em;
   }
 }
 
@@ -399,7 +406,6 @@ h3#song-form-title{
   text-align: center;
   padding-bottom: 1em;
   color: white;
-
 }
 
 
@@ -523,6 +529,11 @@ a.user-index-names{
   }
 }
 
+/* form for sign in on 'Sign in' static page */
+.sign-in-page-form{
+  margin-left: 20px;
+}
+
 
 
 #share-from-soundcloud {
@@ -553,6 +564,13 @@ a.user-index-names{
 }#share-from-soundcloud:active {
   position:relative;
   top:1px;
+}
+
+.sign-up-field{
+  height: 30px !important;
+  width: 300px;
+  font-size: 18px !important;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 #song-upload-form-title{
@@ -603,7 +621,7 @@ a.user-index-names{
 
 /* for tables */
 
-table{
+table.pm-table{
     font-family:Arial;
     font-size: 18px;
     font-style: normal;
@@ -736,4 +754,13 @@ table{
 }
 
 .toggle-feed-order {
+}
+
+table.footer-table{
+  font-size: 16px;
+  td{
+    padding-right: 2em;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
 }
