@@ -3,7 +3,7 @@
     - url = micropost.sc_link
   -else
     - url = micropost.song_url.to_s
-  %a.song-link{:href => url}
+  %a.song-link{:href => url, :type => "audio/mp3"}
     = micropost.title
     %i.icon-play{:style => "margin-left: .5em;"}
   .song
