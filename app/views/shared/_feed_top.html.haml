@@ -1,6 +1,7 @@
 -if @feed_items.any?
 	=link_to "new", root_path
 	%ul.playlist= render partial: 'shared/feed_item', collection: @feed_items.by_top
+	= will_paginate @feed_items
 -else
 	.empty-feed
 		%h3 Music goes here, but you do not have any...yet
