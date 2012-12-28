@@ -1,5 +1,9 @@
 %li{:class => micropost.genre, :id => micropost.id}
-  %a.song-link{:href => micropost.song_url.to_s}
+  - if micropost.sc_link?
+    - url = micropost.sc_link
+  -else
+    - url = micropost.song_url.to_s
+  %a.song-link{:href => url}
     = micropost.title
     %i.icon-play{:style => "margin-left: .5em;"}
   .song
