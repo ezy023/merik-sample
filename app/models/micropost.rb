@@ -20,7 +20,7 @@ class Micropost < ActiveRecord::Base
   validates :song_description, length: { maximum: 160 }
   
   scope :by_new, order("created_at DESC")
-  scope :by_top, lambda { order("cached_votes_up ASC") }
+  scope :by_top, order("cached_votes_up DESC NULLS LAST") #'NULLS LAST' works on POSTGRESql only
   # default_scope order: 'microposts.updated_at DESC'
   
   def self.from_users_followed_by(user)
