@@ -6,6 +6,9 @@ class Micropost < ActiveRecord::Base
   # for retweets
   has_many :retweetings, foreign_key: "retweet_id"
   has_many :retweeters, through: :retweetings, :class_name => 'User'
+  has_many :favorites
+  has_many :users, through: :favorites
+
   mount_uploader :song, MusicUploader
 
   before_save :remove_hash

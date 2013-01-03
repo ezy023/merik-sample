@@ -1,0 +1,5 @@
+%div{id: "favorite-form-#{object.id}"}
+	- if !current_user.favoriting?(object)
+		= render partial: 'shared/favorite', :locals => {object: object}
+	- else
+		= render partial: 'shared/un_favorite', :locals => {object: object}

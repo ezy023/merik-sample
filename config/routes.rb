@@ -1,6 +1,5 @@
 SampleApp::Application.routes.draw do
 
-  
 
   post "frequentlyaskedquestions/create"
 
@@ -24,6 +23,7 @@ SampleApp::Application.routes.draw do
   resources :microposts, only: [:create, :destroy, :index, :show, :update]
   resources :relationships, only: [:create, :destroy]
   resources :retweetings, only: [:create, :destroy]
+  resources :favorites, only: [:create, :destroy]
   resources :password_resets
   resources :messages # for sending emails
   resources :invitations

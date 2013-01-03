@@ -1,0 +1,34 @@
+%li{:class => feed_item.genre, :id => feed_item.id}
+  - if feed_item.sc_link?
+    - url = feed_item.sc_link
+  - else
+    - url = feed_item.song_url.to_s
+  %a.song-link{:href => url, :type => "audio/mp3"}
+    = feed_item.title
+    %i.icon-play{:style => "margin-left: .5em;"}
+  .song
+    %span.pull-right.btn.btn-mini
+      = link_to "", feed_item, class: "icon-comment", target: "_blank"
+      %span
+  .artist
+    Artist: #{feed_item.artist}
+  .artist= feed_item.genre
+  = link_to image_tag(feed_item.user.image.url(:mini)), feed_item.user, class: "user-prof-pic", target: "_blank"
+  .vote-arrows
+    = link_to "", vote_up_micropost_path(feed_item), :method => :put, class: "icon-arrow-up"
+    = feed_item.likes.size
+    = link_to "", vote_down_micropost_path(feed_item), :method => :put, class: "icon-arrow-down"
+  .timestamp
+    = feed_item.user.username
+    posted #{time_ago_in_words(feed_item.created_at)} ago.
+  - if feed_item.retweeters.count > 0
+    %strong= pluralize(feed_item.retweeters.count, "Repost")
+  - if @user.retweeting?(feed_item)
+    .reposters
+      %span By:
+      - feed_item.retweeters.first(3).each do |user|
+        = link_to "#{user.username} ", user, class: "repost-link"
+  = render partial: 'shared/retweetings_post_item',  :locals => { object: feed_item }
+  = render partial: 'shared/favorites_post_item', :locals => { object: feed_item }
+  - if current_user?(feed_item.user)
+    = render partial: 'shared/delete_links', :locals => { object: feed_item }

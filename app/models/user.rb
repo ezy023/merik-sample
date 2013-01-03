@@ -26,6 +26,9 @@ class User < ActiveRecord::Base
   #for retweets
   has_many :retweetings, foreign_key: "retweeter_id"
   has_many :retweets, through: :retweetings, :class_name => 'Micropost'
+
+  has_many :favorites
+  has_many :microposts, through: :favorites
   
   #for beta invites
   # has_many :sent_invitations, :class_name => 'Invitation', :foreign_key => 'sender_id'
@@ -84,6 +87,18 @@ class User < ActiveRecord::Base
   def untweet!(other_post)
     retweetings.find_by_retweet_id(other_post.id).destroy     
   end 
+
+  def favorite!(other_post)
+    favorites.create!(micropost_id: other_post.id)
+  end
+
+  def unfavorite!(other_post)
+    favorites.find_by_id(other_post.id).destroy
+  end
+
+  def favoriting?(other_post)
+    favorites.exists?(user_id: self.id, micropost_id: other_post.id)
+  end
   
   def self.search(search)
   	if search

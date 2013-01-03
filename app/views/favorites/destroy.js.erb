@@ -1,0 +1,1 @@
+$('#favorite-form-<%= @post.id %>').html("<%= escape_javascript(render partial: 'shared/favorite', :locals => { :object => @post }) %>")

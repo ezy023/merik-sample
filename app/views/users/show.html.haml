@@ -28,7 +28,7 @@
 	%div.span7.offset1
 		-if @user.microposts.any? || @user.retweets.any?
 			%h3  Songs (#{@user.microposts.count + @user.retweets.count})
-			%ul.playlist
+			%ul.playlist.well.well-small
 				=render @microposts.by_new
 			=will_paginate @microposts
 		-else

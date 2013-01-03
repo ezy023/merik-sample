@@ -540,10 +540,10 @@ a.user-index-names{
   -moz-box-shadow:inset 0px 0px 0px 0px #ffffff;
   -webkit-box-shadow:inset 0px 0px 0px 0px #ffffff;
   box-shadow:inset 0px 0px 0px 0px #ffffff;
-  background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ff5100), color-stop(1, #ff771c) );
-  background:-moz-linear-gradient( center top, #ff5100 5%, #ff771c 100% );
-  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff5100', endColorstr='#ff771c');
-  background-color:#ff5100;
+  background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ff7700), color-stop(1, #ff5100) );
+  background:-moz-linear-gradient( center top, #ff7700 5%, #ff5100 100% );
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff7700', endColorstr='#ff5100');
+  background-color:#ff7700;
   -moz-border-radius:5px;
   -webkit-border-radius:5px;
   border-radius:5px;
@@ -557,10 +557,10 @@ a.user-index-names{
   text-decoration:none;
   text-align: center;
 }#share-from-soundcloud:hover {
-  background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ff771c), color-stop(1, #ff5100) );
-  background:-moz-linear-gradient( center top, #ff771c 5%, #ff5100 100% );
-  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff771c', endColorstr='#ff5100');
-  background-color:#ff771c;
+  background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ff5100), color-stop(1, #ff7700) );
+  background:-moz-linear-gradient( center top, #ff5100 5%, #ff7700 100% );
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff5100', endColorstr='#ff7700');
+  background-color:#ff5100;
 }#share-from-soundcloud:active {
   position:relative;
   top:1px;
