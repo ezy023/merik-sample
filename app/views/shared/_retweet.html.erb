@@ -1,4 +1,4 @@
 <%= form_for(current_user.retweetings.build(retweet_id: object.id), remote: true) do |f| %>
 	<div><%= f.hidden_field :retweet_id %></div>
-	<%= f.submit "repost", class: "btn btn-mini btn-primary" %>
+	<%= f.submit "Repost", class: "repost-form-submit" %>
 <% end %>

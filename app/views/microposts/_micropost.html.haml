@@ -29,4 +29,4 @@
     - if current_user?(micropost.user)
       = render partial: 'shared/delete_links', :locals => { object: micropost }
     = render partial: 'shared/retweetings_post_item',  :locals => { object: micropost }
-    = render partial: 'shared/favorites_post_item', :locals => { object: feed_item }
+    = render partial: 'shared/favorites_post_item', :locals => { object: micropost }

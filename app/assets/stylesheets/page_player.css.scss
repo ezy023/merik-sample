@@ -89,6 +89,40 @@ ul.playlist li {
 
 }
 
+ul.playlist li input.unfavorite-form-submit{
+  background: none;
+  background-image: url('fill_star.png');
+  border: none;
+  float: right;
+  margin-top: -5.5em;
+}
+
+ul.playlist li input.favorite-form-submit {
+  background: none;
+  background-image: url('empty_star.png');
+  border: none;
+  float: right;
+  margin-top: -5.5em;
+}
+
+ul.playlist li input.repost-form-submit{
+  background: none;
+  border: none;
+  color: #BBBBC8;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+ul.playlist li input.unrepost-form-submit{
+  background: none;
+  border: none;
+  &:hover {
+    text-decoration: underline;
+  }
+
+}
+
 ul.playlist li a {
  display:block;
  text-decoration:none;
