@@ -2,7 +2,7 @@
 - @user = current_user
 %div.span7.well.well-small
 	%h3.center Favorited Songs
-	- if @favs.any?
-		%ul.playlist= render partial: 'microposts/micropost', collection: @favs
+	- if @favorites.any?
+		%ul.playlist= render partial: 'favorites/favorite', collection: @favorites
 	-else
 		%h4 No Favorites yet, go star some posts

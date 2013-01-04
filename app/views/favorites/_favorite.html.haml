@@ -1,0 +1,32 @@
+%li{:class => favorite.genre, :id => favorite.id}
+  - if favorite.sc_link?
+    - url = favorite.sc_link
+  -else
+    - url = favorite.song_url.to_s
+  %a.song-link{:href => url, :type => "audio/mp3"}
+    = favorite.title
+    %i.icon-play{:style => "margin-left: .5em;"}
+  .song
+    %span.pull-right.btn.btn-mini
+      = link_to "", favorite, class: "icon-share", target: "_blank"
+      %span
+  .artist
+    Artist: #{favorite.artist}
+  .artist= favorite.genre
+  = link_to image_tag(favorite.user.image.url(:mini)), favorite.user, class: "user-prof-pic"
+  - if favorite.retweeters.count > 0
+    %strong= pluralize(favorite.retweeters.count, "Repost")
+  .timestamp
+    = favorite.user.username
+    posted #{time_ago_in_words(favorite.created_at)} ago.
+  .vote-arrows-profile
+    = link_to "", vote_up_micropost_path(favorite), :method => :put, class: "icon-arrow-up"
+    = favorite.likes.size
+    = link_to "", vote_down_micropost_path(favorite), :method => :put, class: "icon-arrow-down"
+  - if signed_in?
+    - if current_user.retweeting?(favorite)
+      = render partial: 'shared/icon_retweet', :locals => { object: favorite }
+    - if current_user?(favorite.user)
+      = render partial: 'shared/delete_links', :locals => { object: favorite }
+    = render partial: 'shared/retweetings_post_item',  :locals => { object: favorite }
+    = render partial: 'shared/favorites_post_item', :locals => { object: favorite }

@@ -19,7 +19,7 @@ class FavoritesController < ApplicationController
   end
 
   def show_all
-    @favs = current_user.all_favorites.paginate(page: params[:page]).per_page(20)
+    @favorites = current_user.all_favorites.paginate(page: params[:page]).per_page(20)
   end
 
 end
