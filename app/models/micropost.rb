@@ -47,7 +47,7 @@ class Micropost < ActiveRecord::Base
   where("user_id = :user_id OR id IN (#{retweets})", user_id: user)
   end
 
-  def self.show_user_favorites(user)
+  def self.user_favorites(user)
     favorites = "SELECT micropost_id FROM favorites WHERE user_id = :user_id"
     where("user_id = :user_id OR id IN (#{favorites})", user_id: user)
   end

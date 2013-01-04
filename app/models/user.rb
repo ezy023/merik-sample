@@ -64,8 +64,12 @@ class User < ActiveRecord::Base
   	Micropost.from_users_followed_by(self)
   end
 
+  def show_user_microposts
+    Micropost.show_user_posts(self)
+  end
+
   def all_favorites
-    Micropost.show_user_favorites(self)
+    Micropost.user_favorites(self)
   end
   
   def following?(other_user)

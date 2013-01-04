@@ -1,10 +1,10 @@
 - @user ||= current_user
 .btn
-	%a{href:"#{following_user_path(@user)}"}
+	%a{href:"#"}
 		%strong.stat#following #{@user.followed_users.count} Following
 .btn
-	%a{href:"#{followers_user_path(@user)}"}
+	%a{href:"#"}
 		%strong.stat.followers #{@user.followers.count} Fans
 .btn
-	%a{href:"#{user_path(@user)}"}
+	%a{href:"#"}
 		%strong #{@user.microposts.count} Songs
