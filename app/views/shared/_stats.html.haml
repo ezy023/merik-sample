@@ -7,4 +7,4 @@
 		%strong.stat.followers #{@user.followers.count} Fans
 .btn
 	%a{href:"#{user_path(@user)}"}
-		%strong #{@user.microposts.count} Songs
+		%strong #{@user.microposts.count + @user.retweets.count} Songs
