@@ -7,10 +7,10 @@
 			%br/
 			.statistics{style: "padding-bottom: 1em;"}= render 'shared/stats'
 		%section
-			-if @users.any?
-				.user_avatars
-					=@users.each do |user|
-						=link_to image_tag(user.image.url(:mini)), user
+			/ -if @users.any?
+			/ 	.user_avatars
+			/ 		=@users.each do |user|
+			/ 			=link_to image_tag(user.image.url(:mini)), user_path
 	.span8
 		%h3= @title
 		- if @users.any?
