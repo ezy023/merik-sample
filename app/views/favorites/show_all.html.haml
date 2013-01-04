@@ -1,6 +1,8 @@
 - provide(title: "Favorites")
 - @user = current_user
-- if @favs.any?
-	%ul.playlist= render partial: 'microposts/micropost', collection: @favs
--else
-	%h1 No Favorites yet, go star some posts
+%div.span7.well.well-small
+	%h3.center Favorited Songs
+	- if @favs.any?
+		%ul.playlist= render partial: 'microposts/micropost', collection: @favs
+	-else
+		%h4 No Favorites yet, go star some posts

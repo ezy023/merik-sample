@@ -1,9 +1,11 @@
 -if @feed_items.any?
+	%h3#sound-stream My SoundStream
 	%span Sort By:
 	=link_to "Top", by_top_path
 	%ul.playlist= render partial: 'shared/feed_item', collection: @feed_items.by_new
 	= will_paginate @feed_items
 -else
+	%h3#sound-stream My SoundStream
 	.empty-feed
 		%h3 Music goes here, but you do not have any...yet
 		%br/
