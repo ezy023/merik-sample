@@ -44,6 +44,7 @@ SampleApp::Application.routes.draw do
   match '/contact', to: 'messages#new'
   match '/advertisement', to: 'messages#new'
   match '/by_top', to: 'static_pages#home_top'
+  match '/favorite_songs', to: 'favorites#show_all'
 
   match '/signup/:invitation_token', :controller => 'users', :action => 'new'
 

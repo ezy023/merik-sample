@@ -63,6 +63,10 @@ class User < ActiveRecord::Base
   def feed
   	Micropost.from_users_followed_by(self)
   end
+
+  def all_favorites
+    Micropost.show_user_favorites(self)
+  end
   
   def following?(other_user)
   	self.relationships.find_by_followed_id(other_user.id)
